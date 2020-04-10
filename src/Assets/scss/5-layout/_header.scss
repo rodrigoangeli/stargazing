@@ -1,0 +1,196 @@
+header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 66px;
+  padding-left: 2rem!important;
+  padding-right: 2rem!important;
+  position: relative;
+  align-items: center;
+  z-index: 100;
+
+  
+  @include max-width($bp-small) {
+    
+  padding-left: 1.5rem!important;
+  padding-right: 1.5rem!important;
+   }
+  
+  .header__logo{
+    display: flex;
+    align-items: center;
+  }
+
+  .head__hamburger{
+    width: 30px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include min-width($bp-small) {
+      display: none;
+       }
+  
+    span{
+      height: 3px;
+      background-color:$color-secondary;
+      width: 100%;
+      border-radius: 3px;
+      display: block;
+
+      &:nth-child(2){
+        width: 75%;
+      }
+      
+      &:nth-child(3){
+        width: 85%;
+      }
+    }
+  }
+nav{
+  transition: left 350ms ease-in-out;
+
+  ul{
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    li{
+      display: inline-block;
+      margin-left: 2.75rem;
+      cursor: pointer;
+      position: relative;
+
+      @include min-width($bp-small) {       
+      &::before{
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        height: 2px;
+        border-radius: 5px;
+        background-color: $color-secondary;
+        transition: opacity 200ms ease-in;
+      }
+  
+    }
+
+      &:nth-child(1){
+        margin-left: 0;
+      }
+
+      &:hover{
+        color:$color-secondary;
+
+        &::before{
+          opacity: 1;
+        }
+      }
+      a{
+        color: inherit;
+        text-decoration: none;
+      }
+
+    }
+  }
+
+  @include max-width($bp-small) {
+      min-height: 100vh;
+      background-color: white;
+      width: 75vw;
+      position: fixed;
+      left: -110%;
+      top: 0;
+      z-index: 2;
+
+      
+      &.active{
+        left: 0;
+      }
+
+      ul{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        min-height: 65vh;
+    
+        li{
+          width: 100%;
+          margin-left: 0;
+          padding: 1.7rem 1.3rem;
+          font-size: 1.1rem;
+          position: relative;
+
+          &:hover{
+            background-color:#eeeeee;
+            border-left: 2px solid $color-primary;
+          }
+
+          &::before{
+            content:'';
+            background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNXB4IiBoZWlnaHQ9IjE1cHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTUgMTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM5RTlFOUU7IiBkPSJNNC45LDE0LjJjLTAuMiwwLTAuMy0wLjEtMC41LTAuMmMtMC4zLTAuMy0wLjMtMC43LTAuMS0xLjFsNC43LTUuNEw0LjQsMi4xQzQuMSwxLjgsNC4xLDEuMyw0LjQsMQ0KCQljMC4zLTAuMywwLjgtMC4yLDEuMSwwLjFMMTAuNiw3YzAuMiwwLjMsMC4yLDAuNywwLDFsLTUuMSw1LjlDNS4zLDE0LjEsNS4xLDE0LjIsNC45LDE0LjJ6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            right: 28px;
+            bottom: 50%;
+            transform: translateY(50%);
+          }
+        }
+      }
+  }
+
+  }
+
+  .header__overlay{
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.7);
+    width: 100%;
+    z-index: 0;
+    display: none;
+
+    &.active{
+      display: block;
+    }
+  }
+
+  .header__vagas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .main__cargo, .main__local{
+      flex: 0 0 43%;
+      max-width: 43%;
+
+      svg{
+        width: 1.5rem;
+        fill:$color-primary;
+      }
+    }
+    .main__buscarVagas{
+      flex: 0 0 10%;
+      max-width: 10%;
+    }
+  }
+}
+.header__fade{
+  position: absolute;
+  top: 0px;
+  min-height: 110px;
+  height: 20%;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(255,255,255, 0.6) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}

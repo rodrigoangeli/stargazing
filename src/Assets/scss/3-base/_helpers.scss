@@ -1,0 +1,35 @@
+a,a:link,a:visited,a:hover,a:focus,a:active{
+  color: inherit;
+  text-decoration: none;
+}
+
+.__lock{
+  overflow: hidden;
+}
+
+.container-fluid{
+  @include min-width($bp-ultrawide) {
+    max-width: 1366px;
+  }
+}
+
+.ou{
+  margin:.75rem 0 ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+ 
+
+  span:nth-child(1),span:nth-child(3){
+    width: 100%;
+    height: 1px;
+    background-color: $color-border;
+  }
+  span:nth-child(2){
+    padding: 0 10px;
+    font-size: .8rem;
+    text-transform: uppercase;
+  }
+}
