@@ -2,7 +2,7 @@ const { app, BrowserWindow, globalShortcut, ipcMain } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
 const fs = require("fs");
-const { exec } = require("child_process");
+const exec = require("child_process").exec;
 
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../src/Utils/constants");
 
@@ -55,13 +55,17 @@ function createWindow() {
 }
 
 ipcMain.on(CATCH_ON_MAIN, (event, arg) => {
-  exec("node src/Utils/vamove.js " + arg, function (error, stdout, stderr) {
+  var consultaPerfil = exec("node src/Utils/vamove.js " + arg);
+  consultaPerfil.stdout.on("data", function (data) {
+    mainWindow.send(SEND_TO_RENDERER, data);
+  });
+  /*   exec("node src/Utils/vamove.js " + arg, function (error, stdout, stderr) {
     //adicionar "arg" depois do diretório.
     mainWindow.send(SEND_TO_RENDERER, stdout);
     if (error !== null) {
       console.log("exec error: " + error);
     }
-  });
+  }); */
 });
 
 ipcMain.handle("minimize-event", () => {

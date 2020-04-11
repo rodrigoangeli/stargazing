@@ -3,15 +3,14 @@ import * as fs from "fs";
 
 const result = [];
 let options: IOptions = {
-  total: 10,
+  total: 80,
   headless: true,
   fullAPI: true,
 };
 const user = createApi("user", process.argv[2], options);
 
 (async () => {
-  for await (const post of user.generator()) {
-    result.push(post);
+  for await (let post of user.generator()) {
+    console.log(JSON.stringify(post));
   }
-  console.log(JSON.stringify(result));
 })();

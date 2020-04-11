@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FotoPerfil from "../../Assets/img/rodrigo_profile.png";
 
 export default class Header extends Component {
   constructor(props) {
@@ -23,8 +24,8 @@ export default class Header extends Component {
         </form>
         <div className=""></div>
         <div className="perfil__logado">
-          <img src="https://via.placeholder.com/42x42"></img>
-          <span>Rodrigo Angeli</span>
+          <img src={FotoPerfil}></img>
+          <span>Rodrigo</span>
         </div>
       </div>
     );

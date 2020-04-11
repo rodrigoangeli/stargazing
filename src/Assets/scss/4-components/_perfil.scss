@@ -10,7 +10,10 @@
     button {
       position: absolute;
       right: 0;
+      height: 100%;
       top: 0;
+      background-color: transparent;
+      color: white;
     }
   }
   .perfil__logado {
@@ -22,6 +25,7 @@
       border-radius: 50%;
       margin-right: 12px;
       margin-left: 50px;
+      width: 42px;
     }
     span {
       color: white;
