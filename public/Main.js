@@ -13,12 +13,12 @@ function createWindow() {
       nodeIntegration: true,
     },
     titleBarStyle: "hidden",
-    backgroundColor: "#212327",
     minWidth: 800,
     minHeight: 600,
     autoHideMenuBar: true,
     show: false,
     frame: false,
+    transparent: true,
     //fullscreen:true,
     icon: path.join(__dirname, "assets/logo.png"),
   });
@@ -55,8 +55,7 @@ function createWindow() {
 }
 
 ipcMain.on(CATCH_ON_MAIN, (event, arg) => {
-  console.log("ping", arg); //ping 192.168...
-  exec("node src/Utils/vamove.js", function (error, stdout, stderr) {
+  exec("node src/Utils/vamove.js " + arg, function (error, stdout, stderr) {
     //adicionar "arg" depois do diretório.
     mainWindow.send(SEND_TO_RENDERER, stdout);
     if (error !== null) {

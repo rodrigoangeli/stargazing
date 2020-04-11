@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Titlebar.css";
 
 const ipcRenderer = window.require("electron").ipcRenderer;
 
@@ -16,12 +15,10 @@ const Titlebar = () => {
   });
 
   ipcRenderer.on("maximized", () => {
-    console.log("maximized");
     setIsMaximized(true);
   });
 
   ipcRenderer.on("unmaximized", () => {
-    console.log("unmaximized");
     setIsMaximized(false);
   });
 
@@ -46,8 +43,7 @@ const Titlebar = () => {
   return (
     <div className="Titlebar">
       <div className={isActive ? "Title-Bar" : "Title-Bar-inactive"}>
-        <div className="Titlebar-drag-region"></div>
-        <div className="Title-Bar__section-icon"></div>
+        <div className="Titlebar__drag-region"></div>
         <div className="Title-Bar__section-menubar"></div>
         <div className="Title-Bar__section-center"></div>
         <div className="Title-Bar__section-windows-control">

@@ -12,24 +12,21 @@ $bp-ultrawide: 1580px;
 
 // Colors
 
-$color-primary: #D41B3B !default;
-$color-secondary: #1A2E4C !default;
-$color-text: rgb(113, 113, 113)  !default;
-$color-border:#E7EBEE !default;
-$color-text-secondary: #8890A1 !default;
-$color-gray:#f2f2f2;
+$color-primary: #d41b3b !default;
+$color-secondary: #1a2e4c !default;
 $color-error: #f14668 !default;
+$color-bg: #211f39 !default;
 // Fonts
 
-$font-base-size: 15px !default;
-$font-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-  Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'!important;
+$font-base-size: 16px !default;
+$font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 
 // Miscellaneous
-$image-path: '/assets/images';
+$image-path: "/assets/images";
 
 $inputHeight: 44px !default;
 $inputHeightMobile: 50px !default;
 
-
 $border-radius: 4px !default;
+$box-shadow: 0px 0px 15px 0px rgba(16, 0, 41, 0.26) !default;

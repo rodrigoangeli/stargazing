@@ -1,25 +1,27 @@
 @charset 'utf-8';
 
-@import '1-helpers/variables';
-@import '1-helpers/functions';
-@import '1-helpers/mixins';
+@import "1-helpers/variables";
+@import "1-helpers/functions";
+@import "1-helpers/mixins";
 
-@import '2-vendors/bootstrap-grid';
-@import '2-vendors/bootstrap-utilities';
+@import "2-vendors/bootstrap-grid";
+@import "2-vendors/bootstrap-utilities";
 
-@import '3-base/helpers';
-@import '3-base/reset';
-@import '3-base/print';
-@import '3-base/typography';
+@import "3-base/helpers";
+@import "3-base/reset";
+@import "3-base/print";
+@import "3-base/typography";
 
+@import "4-components/box";
+@import "4-components/perfil";
+@import "4-components/modal";
+@import "4-components/button";
 
-@import '4-components/modal';
-@import '4-components/button';
+@import "5-layout/grid";
+@import "5-layout/header";
+@import "5-layout/footer";
+@import "5-layout/sidebar";
+@import "5-layout/forms";
 
-@import '5-layout/grid';
-@import '5-layout/header';
-@import '5-layout/footer';
-@import '5-layout/sidebar';
-@import '5-layout/forms';
-
-@import '6-pages/home';
+@import "6-pages/posts";
+@import "6-pages/home";

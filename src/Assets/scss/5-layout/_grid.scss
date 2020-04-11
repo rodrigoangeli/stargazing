@@ -1,0 +1,22 @@
+.App {
+  background-color: $color-bg;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.Main {
+  display: flex;
+  flex-wrap: wrap;
+
+  .Content {
+    flex: 1;
+    padding: 40px 60px 0;
+    h1 {
+      color: white;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      position: relative;
+      font-weight: 600;
+    }
+  }
+}

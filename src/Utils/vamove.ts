@@ -1,18 +1,17 @@
-import { createApi, IOptions } from "instamancer"
+import { createApi, IOptions } from "instamancer";
 import * as fs from "fs";
-
 
 const result = [];
 let options: IOptions = {
-	total: 10,
-	headless: true,
-	fullAPI: false,
+  total: 10,
+  headless: true,
+  fullAPI: true,
 };
-const user = createApi("user", "therock", options);
+const user = createApi("user", process.argv[2], options);
 
 (async () => {
-	for await (const post of user.generator()) {
-			result.push(post)
-		}
-		console.log(JSON.stringify(result))
+  for await (const post of user.generator()) {
+    result.push(post);
+  }
+  console.log(JSON.stringify(result));
 })();

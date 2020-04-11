@@ -1,14 +1,18 @@
 import React, { Component } from "react";
+import Sidebar from "../../Components/Sidebar";
+import Header from "../../Components/Header";
+import DadosGerais from "../../Components/DadosGerais";
+import Posts from "../../Components/Posts";
 
 const { ipcRenderer } = window.require("electron");
-
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resultado: "",
+      resultado: [],
+      name: "",
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleRenderer = this.handleRenderer.bind(this);
@@ -22,24 +26,32 @@ class Home extends Component {
   }
 
   handleRenderer(event, data) {
+    console.log(data);
     this.setState({
-      resultado: data,
+      resultado: JSON.parse(data),
     });
-    console.log("handleRenderer", data);
   }
 
-  handleClick() {
-    console.log("teste");
-    ipcRenderer.send(CATCH_ON_MAIN, "192.168.25.8"); //Envia para Main.js, no futuro, mandar pelo input o nome do usuario pra ser scrapeado
+  handleClick(e) {
+    e.preventDefault();
+    ipcRenderer.send(CATCH_ON_MAIN, this.state.name);
+    this.setState({ name: "" });
   }
+  onNameChange = (e) => {
+    this.setState({ name: e.target.value });
+  };
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-12"></div>
-          <button onClick={this.handleClick}>teste23</button>
-          <div id="resultado">{this.state.resultado}</div>
+      <div className="Main">
+        <Sidebar></Sidebar>
+        <div className="Content">
+          <Header
+            onNameChange={this.onNameChange}
+            onClick={this.handleClick}
+            name={this.state.name}
+          ></Header>
+          <Posts dados={this.state.resultado}></Posts>
         </div>
       </div>
     );

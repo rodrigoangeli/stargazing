@@ -1,4 +1,4 @@
-.modal{
+.modal {
   z-index: 2000;
   position: fixed;
   top: 0px;
@@ -10,10 +10,12 @@
   align-items: center;
   padding: 12px 0;
 
-  &.active{display: flex;}
+  &.active {
+    display: flex;
+  }
 
-  .modal__overlay{
-    background-color: rgba(0,0,0,.7);
+  .modal__overlay {
+    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     left: 0;
@@ -21,9 +23,8 @@
     right: 0;
   }
 
-
-    .modal__card{
-      position: relative;
+  .modal__card {
+    position: relative;
     width: 100vw;
     max-width: 100vw;
     max-height: 100%;
@@ -31,38 +32,38 @@
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px;
     border-radius: $border-radius;
-    background: rgb(255, 255, 255) ;
+    background: rgb(255, 255, 255);
     overflow-x: hidden;
     margin: 0 auto;
-    
+
     @include min-width($bp-small) {
       width: 100%;
-    max-width: 568px;
+      max-width: 568px;
 
-      &.lg{
+      &.lg {
         max-width: 900px;
       }
     }
 
-    .modal__header{
+    .modal__header {
       padding: 1.25rem 0 0.7rem;
-      margin-bottom: .7rem;
+      margin-bottom: 0.7rem;
       text-align: center;
       position: relative;
-      border-bottom: 1px solid $color-border;
-      color:$color-secondary;
+      border-bottom: 1px solid #f1f1f1;
+      color: $color-secondary;
       z-index: 2;
 
-      .modal__fechar{
+      .modal__fechar {
         position: absolute;
-    right: 1rem;
-    top:1rem;
-    font-size: 2.2rem;
-    line-height: 1.2rem;
-    cursor: pointer;
+        right: 1rem;
+        top: 1rem;
+        font-size: 2.2rem;
+        line-height: 1.2rem;
+        cursor: pointer;
 
-        &::before{
-          content: '';
+        &::before {
+          content: "";
           position: absolute;
           width: 0px;
           height: 0px;
@@ -75,12 +76,11 @@
           z-index: -1;
           transform: scale(0);
           opacity: 0;
-          transition: all 200ms ease-in-out
+          transition: all 200ms ease-in-out;
         }
 
-        &:hover{
-
-          &::before{
+        &:hover {
+          &::before {
             opacity: 1;
             transform: scale(1);
           }
@@ -88,25 +88,23 @@
       }
     }
 
-    .modal__corpo{
+    .modal__corpo {
       padding: 0 1.5rem 1.5rem;
       overflow: auto !important;
       @include min-width($bp-small) {
         padding: 0 4.5rem 2rem;
       }
 
-      .modal__trocar{
+      .modal__trocar {
         display: inline-block;
-        font-size: .81rem;
-        
-        
-        span{
-          color:$color-primary;
+        font-size: 0.81rem;
+
+        span {
+          color: $color-primary;
           cursor: pointer;
           text-decoration: underline;
         }
       }
     }
   }
-
 }

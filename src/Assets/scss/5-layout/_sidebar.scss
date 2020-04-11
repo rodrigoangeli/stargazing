@@ -1,0 +1,60 @@
+.Sidebar {
+  min-height: 100vh;
+  width: 110px;
+  padding-top: 40px;
+  background-color: #26243e;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &.active {
+    width: 190px;
+  }
+
+  ul {
+    margin-top: 90px;
+
+    li {
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      cursor: pointer;
+
+      &:nth-last-child(1) {
+        padding-bottom: 0;
+      }
+
+      svg {
+        height: 24px;
+        width: 24px;
+        fill: #7a7796;
+        transition: all 150ms ease-in;
+      }
+      span {
+        color: white;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 150ms ease-in;
+      }
+
+      &:hover {
+        svg {
+          fill: white;
+          transition: all 150ms ease-in;
+        }
+
+        span {
+          opacity: 1;
+          transition: all 150ms ease-in;
+        }
+      }
+    }
+  }
+}

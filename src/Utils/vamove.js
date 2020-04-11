@@ -47,9 +47,10 @@ var instamancer_1 = require("instamancer");
 var result = [];
 var options = {
     total: 10,
-    headless: true
+    headless: true,
+    fullAPI: true
 };
-var user = instamancer_1.createApi("user", "therock", options);
+var user = instamancer_1.createApi("user", process.argv[2], options);
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _b, post, e_1_1;
     var e_1, _c;

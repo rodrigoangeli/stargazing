@@ -1,0 +1,61 @@
+table {
+  width: 100%;
+
+  th {
+    vertical-align: bottom;
+    text-align: left;
+    padding: 0.55rem 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+
+    span {
+      color: #6a6886;
+    }
+  }
+  tbody {
+    td {
+      text-align: left;
+      vertical-align: middle;
+      padding: 0.55rem 12px;
+      border-top: 1px dashed #35334d;
+      color: #e4e4e6;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      .img__post {
+        height: 40px;
+        width: 40px;
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto;
+        border-radius: $border-radius;
+      }
+      .tag__post,
+      .tag__data {
+        display: inline-block;
+        padding: 0.25em 0.4em 0.25em 0;
+        font-size: 0.8rem;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+        color: #6a6886;
+      }
+      .tag__post {
+        &.carrossel {
+          color: #ff6294;
+        }
+        &.video {
+          color: #ff8a48;
+        }
+        &.foto {
+          color: #84bbff;
+        }
+      }
+    }
+  }
+}
