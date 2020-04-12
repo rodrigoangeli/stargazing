@@ -6,7 +6,6 @@ import Posts from "../../Components/Posts";
 
 const { ipcRenderer } = window.require("electron");
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
-const teste = [];
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -26,28 +25,21 @@ class Home extends Component {
   }
 
   handleRenderer(event, data) {
-    var verificar = data.includes('{"shortcode_media"');
-    var verificar2 = data.includes('{"shortcode_media"', 15);
-
-    if (verificar && verificar2) {
-      var splitted = data.split(/(?={"shortcode_media")/);
-      console.log(splitted);
-      for (var i = 0; i < splitted.length; i++) {
-        splitted[i] = JSON.parse(splitted[i]);
-        teste.push(splitted[i]);
-      }
+    var a = '{"shortcode_media"';
+    if (data.indexOf(a) !== -1) {
+      this.setState({
+        resultado: [
+          ...this.state.resultado,
+          ...JSON.parse(
+            "[" + data.split(/(?={"shortcode_media")/).join(",") + "]"
+          ),
+        ],
+      });
     } else {
-      teste.push(JSON.parse(data));
+      this.setState({
+        resultado: [...this.state.resultado, JSON.parse(data)],
+      });
     }
-    //checar se string contém {"shortcode_media" mais de uma vez
-    //se sim, vai separar em array ambos
-    //dar push nessas arrays pra array teste
-
-    // se nao, apenas pushar pra array teste
-
-    this.setState({
-      resultado: teste,
-    });
   }
 
   handleClick(e) {
