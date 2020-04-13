@@ -19,7 +19,8 @@ function createWindow() {
     autoHideMenuBar: true,
     show: false,
     frame: false,
-    transparent: true,
+    backgroundColor: "#211f39",
+    //transparent: true,
     //fullscreen:true,
     icon: path.join(__dirname, "assets/logo.png"),
   });
@@ -54,33 +55,13 @@ function createWindow() {
       app.quit();
   });*/
 }
-var dataEscrever = "";
 ipcMain.on(CATCH_ON_MAIN, (event, arg) => {
-  var consultaPerfil = exec("node src/Utils/vamove.js " + arg + " 80", {
+  var consultaPerfil = exec("node src/Utils/vamove.js " + arg, {
     maxBuffer: 1024 * 5000,
   });
-
   consultaPerfil.stdout.on("data", function (data) {
-    dataEscrever += data;
     mainWindow.send(SEND_TO_RENDERER, data);
   });
-  consultaPerfil.on("error", function () {
-    fs.writeFileSync("error.json", dataEscrever);
-  });
-  consultaPerfil.on("close", function () {
-    fs.writeFileSync("close.json", dataEscrever);
-  });
-  consultaPerfil.stdout.on("end", function () {
-    fs.writeFileSync("end.json", dataEscrever);
-  });
-
-  /*   exec("node src/Utils/vamove.js " + arg, function (error, stdout, stderr) {
-    //adicionar "arg" depois do diretório.
-    mainWindow.send(SEND_TO_RENDERER, stdout);
-    if (error !== null) {
-      console.log("exec error: " + error);
-    }
-  }); */
 });
 
 ipcMain.handle("minimize-event", () => {

@@ -1,0 +1,49 @@
+.Carregando {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100% - 30px);
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 350ms 150ms ease forwards;
+
+  & ~ .Content,
+  & ~ .Sidebar {
+    filter: blur(2px);
+  }
+
+  .carregando__info {
+    text-align: center;
+
+    h4,
+    .p3 {
+      color: white;
+
+      span {
+        color: $color-destaque;
+      }
+    }
+    .carregando__barra {
+      width: 450px;
+      height: 5px;
+      background-color: #808080;
+      margin-top: 30px;
+      border-radius: 90px;
+      position: relative;
+
+      .carregando__progresso {
+        background-color: $color-destaque;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        transition: width 350ms ease;
+      }
+    }
+  }
+}

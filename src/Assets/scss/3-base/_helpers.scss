@@ -8,6 +8,20 @@ a:active {
   text-decoration: none;
 }
 
+::selection {
+  color: none;
+  background: none;
+}
+
+input::selection {
+  color: inherit;
+  background: #5c1fbf;
+}
+
+html {
+  overflow-y: hidden;
+}
+
 .__lock {
   overflow: hidden;
 }
@@ -30,4 +44,29 @@ a:active {
 
 ::-webkit-scrollbar-thumb {
   background: #4a4867;
+}
+
+ul {
+  &.placeholder {
+    list-style: none;
+    width: 100%;
+
+    li {
+      border-top: 1px dashed #35334d;
+      height: 60px;
+    }
+
+    li:nth-child(odd) {
+      background-color: hsla(245, 22%, 21%, 0.6);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 }

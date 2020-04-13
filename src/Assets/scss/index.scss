@@ -12,6 +12,7 @@
 @import "3-base/print";
 @import "3-base/typography";
 
+@import "4-components/carregando";
 @import "4-components/box";
 @import "4-components/perfil";
 @import "4-components/modal";
@@ -22,6 +23,6 @@
 @import "5-layout/footer";
 @import "5-layout/sidebar";
 @import "5-layout/forms";
+@import "5-layout/tabela";
 
-@import "6-pages/posts";
 @import "6-pages/home";

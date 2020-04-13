@@ -1,17 +1,41 @@
 import React, { Component } from "react";
+import { ascendente } from "../Functions/OrdenarColuna";
+import { orderBy } from "lodash";
 
 export default class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dados: this.props.dados,
+      resultado: this.props.resultado,
+      sortAscending: true,
+      sortParams: { direction: undefined },
     };
+    this.ordenarColuna = this.ordenarColuna.bind(this);
+  }
+
+  ordenarColuna(sortKey) {
+    const {
+      sortParams: { direction },
+    } = this.state;
+    // Check, what direction now should be
+    const sortDirection = direction === "desc" ? "asc" : "desc";
+    // Sort dataAtual
+    const sortedCollection = orderBy(
+      this.props.resultado,
+      [sortKey],
+      [sortDirection]
+    );
+    //Update component state with new data
+    this.props.setPosts(sortedCollection);
+    this.setState({
+      sortParams: {
+        direction: sortDirection,
+      },
+    });
   }
 
   render() {
-    let currentTodos = this.props.dados;
-
-    let publicacoes = currentTodos.map((data, index) => (
+    let publicacoes = this.props.resultado.map((data, index) => (
       <tr key={index}>
         <td>
           <div
@@ -76,23 +100,54 @@ export default class Posts extends Component {
     ));
     return (
       <>
-        <h1>Publicações</h1>
+        <h2>Publicações</h2>
         <div className="box">
           <table id="tabelaPosts">
             <thead>
               <tr>
-                <th>
-                  Publicações
-                  <span> ({this.props.dados.length} encontradas)</span>{" "}
+                <th
+                  onClick={() =>
+                    this.ordenarColuna("shortcode_media.taken_at_timestamp")
+                  }
+                >
+                  Posts
+                  <span> ({this.props.resultado.length} encontrados)</span>{" "}
                 </th>
                 <th>Thumb</th>
-                {/* <th>Eng. %</th> */}
-                <th>Likes</th>
-                <th>Comentários</th>
+                {/* <th onClick={() => this.ordenarColuna("shortcode_media.taxaEngajamento")}>Eng. %</th> */}
+                <th
+                  onClick={() =>
+                    this.ordenarColuna(
+                      "shortcode_media.edge_media_preview_like.count"
+                    )
+                  }
+                >
+                  Likes
+                </th>
+                <th
+                  onClick={() =>
+                    this.ordenarColuna(
+                      "shortcode_media.edge_media_preview_comment.count"
+                    )
+                  }
+                >
+                  Comentários
+                </th>
               </tr>
             </thead>
             <tbody>{publicacoes}</tbody>
           </table>
+          {this.props.resultado.length <= 0 && (
+            <ul className="placeholder">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          )}
         </div>
       </>
     );

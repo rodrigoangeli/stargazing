@@ -6,25 +6,29 @@ import Posts from "../../Components/Posts";
 
 const { ipcRenderer } = window.require("electron");
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
-class Home extends Component {
+
+class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       resultado: [],
-      name: "",
+      nome: "",
+      carregando: false,
+      limite: 15,
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleRenderer = this.handleRenderer.bind(this);
+    this.gerarDados = this.gerarDados.bind(this);
+    this.buscarIg = this.buscarIg.bind(this);
+    this.setPosts = this.setPosts.bind(this);
   }
 
   componentDidMount() {
-    ipcRenderer.on(SEND_TO_RENDERER, this.handleRenderer);
+    ipcRenderer.on(SEND_TO_RENDERER, this.gerarDados);
   }
   componentWillUnmount() {
-    ipcRenderer.removeListener(SEND_TO_RENDERER, this.handleRenderer);
+    ipcRenderer.removeListener(SEND_TO_RENDERER, this.gerarDados);
   }
 
-  handleRenderer(event, data) {
+  gerarDados(event, data) {
     var a = '{"shortcode_media"';
     if (data.indexOf(a) !== -1) {
       this.setState({
@@ -42,30 +46,56 @@ class Home extends Component {
     }
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    ipcRenderer.send(CATCH_ON_MAIN, this.state.name);
-    this.setState({ name: "" });
+  setPosts(posts) {
+    this.setState({ resultado: posts });
   }
-  onNameChange = (e) => {
-    this.setState({ name: e.target.value });
-  };
+
+  buscarIg(value) {
+    this.setState({
+      carregando: !this.state.carregando,
+      nome: value,
+    });
+    ipcRenderer.send(CATCH_ON_MAIN, value + " " + this.state.limite);
+  }
 
   render() {
     return (
       <div className="Main">
+        {this.state.carregando &&
+          this.state.limite != this.state.resultado.length && (
+            <div className="Carregando">
+              <div className="carregando__info">
+                <h4>
+                  Coletando dados de <span>@{this.state.nome}</span>
+                </h4>
+                <div className="p3">
+                  Isso pode levar alguns minutos, aguarde.
+                </div>
+                <div className="carregando__barra">
+                  <div
+                    className="carregando__progresso"
+                    style={{
+                      width:
+                        (this.state.resultado.length / this.state.limite) *
+                          100 +
+                        "%",
+                    }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          )}
         <Sidebar></Sidebar>
         <div className="Content">
-          <Header
-            onNameChange={this.onNameChange}
-            onClick={this.handleClick}
-            name={this.state.name}
-          ></Header>
-          <Posts dados={this.state.resultado}></Posts>
+          <Header buscarIg={this.buscarIg}></Header>
+          <Posts
+            resultado={this.state.resultado}
+            setPosts={this.setPosts}
+          ></Posts>
         </div>
       </div>
     );
   }
 }
 
-export default Home;
+export default Main;

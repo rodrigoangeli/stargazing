@@ -1,8 +1,9 @@
 .Titlebar {
   /* -webkit-app-region: drag; */
   width: 100%;
-  position: fixed;
+  position: relative;
   top: 0;
+  z-index: 9;
 
   & .Titlebar__drag-region {
     top: 0;

@@ -1,22 +1,53 @@
 .App {
   background-color: $color-bg;
-  border-radius: 6px;
-  overflow: hidden;
+  height: 100vh;
 }
 
 .Main {
   display: flex;
   flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
 
   .Content {
     flex: 1;
-    padding: 60px 60px 0;
-    h1 {
+    padding: 40px 60px 100px;
+    position: relative;
+
+    h2 {
       color: white;
       margin-top: 50px;
-      margin-bottom: 30px;
+      margin-bottom: -15px;
+      padding-left: 15px;
       position: relative;
+      display: inline-block;
       font-weight: 600;
+      z-index: 1;
+
+      &::before {
+        content: "#";
+        color: #5a4d80;
+        display: flex;
+        font-size: 1.4em;
+        position: absolute;
+        left: -20px;
+        width: 30px;
+        top: 0px;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        background-color: $color-destaque;
+        position: absolute;
+        left: 8px;
+        width: 100%;
+        border-radius: 0 5px;
+        height: 12px;
+        bottom: -1px;
+        z-index: -1;
+      }
     }
   }
 }
