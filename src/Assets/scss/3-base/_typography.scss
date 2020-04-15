@@ -2,6 +2,8 @@
  * Default font family, size and color
  */
 
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+
 body {
   font-family: $font-primary;
   font-size: $font-base-size;
@@ -18,7 +20,7 @@ h1,
   line-height: 3.9375rem;
   margin-top: 1.3125rem;
   margin-bottom: 2.625rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 h2,
 .h2 {
@@ -42,6 +44,13 @@ h4,
   margin-bottom: 0rem;
 }
 h5,
+.h5 {
+  font-size: 1.2rem;
+  line-height: 1.3125rem;
+  margin-top: 1.3125rem;
+  margin-bottom: 0rem;
+}
+h6,
 .h5 {
   font-size: 1rem;
   line-height: 1.3125rem;
@@ -95,8 +104,7 @@ sub {
 .p2 {
   font-size: 1.1rem;
   line-height: 1.2;
-  font-weight: 600;
-  color: $color-secondary;
+  font-weight: 700;
 }
 .p3 {
   font-size: 0.75rem;

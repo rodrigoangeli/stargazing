@@ -14,29 +14,30 @@ class Sidebar extends Component {
     return (
       <div className="Sidebar">
         <img src={Logo} alt="Stargazing" />
-
-        <ul>
-          <li>
-            <DadosGerais fill="white" />
-            <span>Dados Gerais</span>
-          </li>
-          <li>
-            <Posts fill="white" />
-            <span>Posts</span>
-          </li>
-          <li>
-            <Hashtags fill="white" />
-            <span>Hashtags</span>
-          </li>
-          <li>
-            <Performance fill="white" />
-            <span>Performance</span>
-          </li>
-          <li>
-            <Comparacao fill="white" />
-            <span>Comparar</span>
-          </li>
-        </ul>
+        <div className="sidebar__wrapper">
+          <ul>
+            <li>
+              <DadosGerais fill="white" />
+              {/* <span>Dados</span> */}
+            </li>
+            <li className="active">
+              <Posts fill="white" />
+              {/*  <span>Posts</span> */}
+            </li>
+            <li>
+              <Hashtags fill="white" />
+              {/*  <span>Hashtags</span> */}
+            </li>
+            <li>
+              <Performance fill="white" />
+              {/* <span>Performance</span> */}
+            </li>
+            <li>
+              <Comparacao fill="white" />
+              {/* <span>Comparar</span> */}
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }

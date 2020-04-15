@@ -2,28 +2,14 @@
   display: flex;
   flex-wrap: wrap;
 
-  .perfil__searchbar {
-    flex: 1;
-    display: flex;
-    position: relative;
-
-    button {
-      position: absolute;
-      right: 0;
-      height: 100%;
-      top: 0;
-      background-color: transparent;
-      color: white;
-    }
-  }
   .perfil__logado {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 
     span {
-      color: white;
-      font-weight: 600;
+      color: $color-primary;
+      font-weight: 700;
       margin-left: 50px;
     }
   }

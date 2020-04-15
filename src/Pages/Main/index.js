@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Sidebar from "../../Components/Sidebar";
+import Searchbar from "../../Components/Searchbar";
 import Header from "../../Components/Header";
 import DadosGerais from "../../Components/DadosGerais";
 import Posts from "../../Components/Posts";
@@ -14,7 +15,7 @@ class Main extends Component {
       resultado: [],
       nome: "",
       carregando: false,
-      limite: 15,
+      limite: 35,
     };
     this.gerarDados = this.gerarDados.bind(this);
     this.buscarIg = this.buscarIg.bind(this);
@@ -44,6 +45,7 @@ class Main extends Component {
         resultado: [...this.state.resultado, JSON.parse(data)],
       });
     }
+    console.log(this.state.resultado);
   }
 
   setPosts(posts) {
@@ -86,8 +88,8 @@ class Main extends Component {
             </div>
           )}
         <Sidebar></Sidebar>
+        <Searchbar buscarIg={this.buscarIg}></Searchbar>
         <div className="Content">
-          <Header buscarIg={this.buscarIg}></Header>
           <Posts
             resultado={this.state.resultado}
             setPosts={this.setPosts}

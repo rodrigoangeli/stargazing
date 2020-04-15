@@ -28,19 +28,6 @@ export default class Header extends Component {
   render() {
     return (
       <div className="perfil__dados">
-        <form className="perfil__searchbar" onSubmit={this.hanldeSubmit}>
-          <input
-            type="text"
-            placeholder="Digite o perfil que você deseja consultar"
-            className="flex-1"
-            onChange={this.onInputChange}
-            name="name"
-            value={this.state.nome}
-          ></input>
-          <button onClick={this.hanldeSubmit} type="button">
-            Buscar
-          </button>
-        </form>
         <div className=""></div>
         <div className="perfil__logado">
           <span>Rodrigo</span>

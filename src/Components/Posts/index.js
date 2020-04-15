@@ -72,10 +72,12 @@ export default class Posts extends Component {
             }
           ></a>
           <br />
-          {data.shortcode_media.edge_media_to_caption.edges[0].node.text.substring(
-            0,
-            50
-          ) + ".."}
+          {data.shortcode_media.edge_media_to_caption.edges.length > 0
+            ? data.shortcode_media.edge_media_to_caption.edges[0].node.text.substring(
+                0,
+                50
+              ) + ".."
+            : ""}
         </td>
         <td>
           <div

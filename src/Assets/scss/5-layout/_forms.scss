@@ -1,7 +1,7 @@
 ::placeholder,
 select:invalid,
 select option[value=""] {
-  color: $color-texto;
+  color: $color-secondary;
   font-weight: 400;
 }
 
@@ -21,10 +21,10 @@ select {
   font-family: $font-primary;
   font-size: 16px;
   line-height: 1.3;
-  color: white;
+  color: $color-secondary;
   resize: none;
-  font-weight: 600;
-  background-color: #282642;
+  font-weight: 700;
+  background-color: #eceef2;
   border: 1px solid transparent;
   border-radius: 4px;
   min-height: $inputHeight;
@@ -38,7 +38,7 @@ select {
   &:focus,
   &:active {
     outline: 1px solid transparent;
-    border: 1px solid $color-destaque;
+    border: 1px solid $color-tertiary;
   }
 
   &.parsley-error {

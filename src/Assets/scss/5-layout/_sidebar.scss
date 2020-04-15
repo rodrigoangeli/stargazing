@@ -1,58 +1,99 @@
 .Sidebar {
   min-height: 100vh;
-  width: 100px;
-  padding-top: 30px;
-  background-color: #1010102e;
+  width: 77px;
+  padding-bottom: 60px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: $color-tertiary;
+  z-index: 3;
+  border-radius: 0 15px 0 0;
 
   img {
     display: block;
     margin: 0 auto;
+    position: absolute;
+    top: 15px;
+    padding: 0 17px;
+    width: 77px;
   }
 
   &.active {
     width: 190px;
   }
 
-  ul {
-    margin-top: 90px;
+  .sidebar__wrapper {
+    height: 100%;
+    width: 77px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-    li {
-      margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase;
-      font-size: 12px;
-      cursor: pointer;
+    ul {
+      width: 100%;
 
-      &:nth-last-child(1) {
-        padding-bottom: 0;
-      }
+      li {
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 12px 0;
+        position: relative;
 
-      svg {
-        height: 24px;
-        width: 24px;
-        fill: #7a7796;
-        transition: all 150ms ease-in;
-      }
-      span {
-        color: white;
-        margin-top: 10px;
-        opacity: 0;
-        transition: all 150ms ease-in;
-      }
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
 
-      &:hover {
         svg {
-          fill: white;
+          height: 24px;
+          width: 24px;
+          fill: rgba($color-white, 0.5);
+          transition: all 150ms ease-in;
+        }
+        span {
+          color: $color-white;
+          margin-top: 2px;
+          opacity: 0;
           transition: all 150ms ease-in;
         }
 
-        span {
-          opacity: 1;
-          transition: all 150ms ease-in;
+        &:hover {
+          svg {
+            fill: $color-white;
+            transition: all 150ms ease-in;
+          }
+
+          span {
+            opacity: 1;
+            transition: all 150ms ease-in;
+          }
+        }
+
+        &.active {
+          background-color: rgba(white, 0.08);
+
+          svg {
+            fill: $color-white;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background-color: white;
+            border-radius: 0 5px 5px 0;
+          }
         }
       }
     }

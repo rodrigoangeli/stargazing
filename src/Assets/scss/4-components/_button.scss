@@ -1,80 +1,79 @@
-
-.btn,button{
+.btn,
+button {
   display: inline-block;
-    margin: 0px ;
-    position: relative ;
-    text-align: center ;
-    text-decoration: none ;
-    width: auto ;
-    cursor: pointer ;
-    border-radius: 4px ;
-    font-size: 1rem ;
-    line-height: 24px ;
-    letter-spacing: normal ;
-    font-family: $font-primary;
-    padding-top: 10px ;
-    padding-bottom: 10px ;
-    font-weight: 700 ;
-    padding-left: 22px ;
-    padding-right: 22px ;
-    min-width: 71.19349550499538px ;
-    border: none;
+  margin: 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 24px;
+  letter-spacing: normal;
+  font-family: $font-primary;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  padding-left: 22px;
+  padding-right: 22px;
+  min-width: 71.19349550499538px;
+  border: none;
 
-  &:active,&:focus{
+  &:active,
+  &:focus {
     outline: none;
   }
 
-
-  &.btn-primary{
+  &.btn-primary {
     background-color: $color-primary;
-    color:white;
-    
-    .icone{      
-    fill:white;
-    }
-  }
-  
-  &.btn-secondary{
-    background-color: $color-secondary;
-    color:white; 
+    color: $color-primary;
 
-    .icone{      
-    fill:white;
+    .icone {
+      fill: $color-primary;
     }
   }
-  
-  &.btn-branco{
-    background-color: white;
-    color:$color-primary;
-  }
-  &.btn-google{
-    background-color: white;
-    border:1px solid #d3d3d3;
-    color:#6f6f6f; 
-    .icone{      
-    fill:white;
+
+  &.btn-secondary {
+    background-color: $color-secondary;
+    color: $color-primary;
+
+    .icone {
+      fill: $color-primary;
     }
   }
-  &.btn-facebook{
+
+  &.btn-branco {
+    background-color: $color-primary;
+    color: $color-primary;
+  }
+  &.btn-google {
+    background-color: $color-primary;
+    border: 1px solid #d3d3d3;
+    color: #6f6f6f;
+    .icone {
+      fill: $color-primary;
+    }
+  }
+  &.btn-facebook {
     background-color: #415dae;
-    color:white;
+    color: $color-primary;
   }
-  &.btn-icone{
+  &.btn-icone {
     padding-left: 3rem;
     padding-right: 1rem;
   }
-  
 
-  &.btn-link{
-    &.primary{
-      color:$color-primary
+  &.btn-link {
+    &.primary {
+      color: $color-primary;
     }
-    &.secondary{
-      color:$color-secondary
+    &.secondary {
+      color: $color-secondary;
     }
   }
-  
-  .icone{
+
+  .icone {
     left: 1rem;
     right: initial;
     position: absolute;
@@ -83,9 +82,9 @@
     z-index: 2;
     width: 1.5rem;
 
-    &.centralizado{
+    &.centralizado {
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
   }
 }

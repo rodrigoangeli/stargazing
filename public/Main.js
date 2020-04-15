@@ -19,7 +19,7 @@ function createWindow() {
     autoHideMenuBar: true,
     show: false,
     frame: false,
-    backgroundColor: "#211f39",
+    backgroundColor: "#0f70e0",
     //transparent: true,
     //fullscreen:true,
     icon: path.join(__dirname, "assets/logo.png"),
@@ -57,7 +57,7 @@ function createWindow() {
 }
 ipcMain.on(CATCH_ON_MAIN, (event, arg) => {
   var consultaPerfil = exec("node src/Utils/vamove.js " + arg, {
-    maxBuffer: 1024 * 5000,
+    maxBuffer: 1024 * 50000000,
   });
   consultaPerfil.stdout.on("data", function (data) {
     mainWindow.send(SEND_TO_RENDERER, data);

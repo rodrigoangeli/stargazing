@@ -5,12 +5,12 @@ table {
     vertical-align: bottom;
     text-align: left;
     padding: 0.55rem 12px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9rem;
-    color: #fff;
+    color: $color-secondary;
 
     span {
-      color: $color-texto;
+      color: $color-primary;
     }
   }
   tbody {
@@ -18,8 +18,9 @@ table {
       text-align: left;
       vertical-align: middle;
       padding: 0.55rem 12px;
-      border-top: 1px dashed #35334d;
-      color: #e4e4e6;
+      border-top: 1px dashed #e4e4e4;
+      color: $color-primary;
+      font-size: 0.9rem;
 
       &:first-child {
         text-align: left;
@@ -35,23 +36,26 @@ table {
       .tag__post,
       .tag__data {
         display: inline-block;
-        padding: 0.25em 0.4em 0.25em 0;
+        padding: 0.25em 0.4em 0.25em 0.4em;
         font-size: 0.8rem;
         line-height: 1;
         text-align: center;
         white-space: nowrap;
         vertical-align: baseline;
         border-radius: 0.25rem;
-        color: $color-texto;
+        color: #c5c5c5;
       }
       .tag__post {
         &.carrossel {
+          background-color: lighten(#ff6294, 28.5%);
           color: #ff6294;
         }
         &.video {
+          background-color: lighten(#ff8a48, 32.5%);
           color: #ff8a48;
         }
         &.foto {
+          background-color: lighten(#84bbff, 20.5%);
           color: #84bbff;
         }
       }

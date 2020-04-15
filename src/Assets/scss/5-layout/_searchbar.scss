@@ -1,0 +1,18 @@
+.Searchbar {
+  height: 100vh;
+  min-width: 225px;
+  width: 16.5vw;
+  background-color: #fff;
+  padding: 0 24px;
+  color: $color-secondary;
+
+  .searchbar__form {
+    flex: 1;
+    position: relative;
+    margin-top: 1rem;
+
+    button {
+      margin-top: 1rem;
+    }
+  }
+}

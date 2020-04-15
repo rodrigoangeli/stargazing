@@ -42,7 +42,12 @@
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
 
   @return $string;
@@ -79,7 +84,7 @@
 // Request a theme color level
 @function theme-color-level($color-name: "primary", $level: 0) {
   $color: theme-color($color-name);
-  $color-base: if($level > 0, $black, $white);
+  $color-base: if($level > 0, $black, $color-primary);
   $level: abs($level);
 
   @return mix($color-base, $color, $level * $theme-color-interval);
