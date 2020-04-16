@@ -4,6 +4,8 @@ import Searchbar from "../../Components/Searchbar";
 import Header from "../../Components/Header";
 import DadosGerais from "../../Components/DadosGerais";
 import Posts from "../../Components/Posts";
+import Cadastro from "../Cadastro";
+import Login from "../Login";
 
 const { ipcRenderer } = window.require("electron");
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
@@ -87,13 +89,16 @@ class Main extends Component {
               </div>
             </div>
           )}
-        <Sidebar></Sidebar>
-        <Searchbar buscarIg={this.buscarIg}></Searchbar>
+        {/* <Sidebar></Sidebar> */}
+
         <div className="Content">
-          <Posts
+          {/*    <Searchbar buscarIg={this.buscarIg}></Searchbar>
+          <Cadastro></Cadastro> */}
+          <Login></Login>
+          {/* <Posts
             resultado={this.state.resultado}
             setPosts={this.setPosts}
-          ></Posts>
+          ></Posts> */}
         </div>
       </div>
     );

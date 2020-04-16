@@ -15,6 +15,8 @@
 /public/howto.txt
 /public/*.md
 
+/src/Utils/php/*
+
 # misc
 .DS_Store
 .env.local

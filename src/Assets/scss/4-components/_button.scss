@@ -26,26 +26,26 @@ button {
   }
 
   &.btn-primary {
-    background-color: $color-primary;
-    color: $color-primary;
+    background-color: $color-tertiary;
+    color: $color-white;
 
     .icone {
-      fill: $color-primary;
+      fill: $color-white;
     }
   }
 
   &.btn-secondary {
     background-color: $color-secondary;
-    color: $color-primary;
+    color: $color-white;
 
     .icone {
-      fill: $color-primary;
+      fill: $color-white;
     }
   }
 
   &.btn-branco {
-    background-color: $color-primary;
-    color: $color-primary;
+    background-color: $color-white;
+    color: $color-secondary;
   }
   &.btn-google {
     background-color: $color-primary;

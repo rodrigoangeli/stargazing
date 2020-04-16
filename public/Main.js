@@ -21,7 +21,7 @@ function createWindow() {
     frame: false,
     backgroundColor: "#0f70e0",
     //transparent: true,
-    //fullscreen:true,
+    fullscreen: true,
     icon: path.join(__dirname, "assets/logo.png"),
   });
 

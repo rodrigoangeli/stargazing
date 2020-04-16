@@ -27,20 +27,20 @@
 
 .Title-Bar {
   top: 0px;
-  width: calc(100% - 77px);
+  width: 100%;
   margin-left: auto;
   height: 30px;
   display: flex;
-  background-color: $color-white;
+  background-color: darken($color-bg, 7%);
   position: relative;
 }
 
 .Title-Bar-inactive {
   top: 0px;
-  width: calc(100% - 77px);
+  width: 100%;
   margin-left: auto;
   height: 30px;
-  background-color: $color-white;
+  background-color: darken($color-bg, 7%);
   display: flex;
   position: relative;
 }

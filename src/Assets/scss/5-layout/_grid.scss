@@ -8,35 +8,8 @@
 
   .Content {
     flex: 1;
-    padding: 40px 60px 100px;
     background-color: $color-bg;
     overflow: scroll;
     height: 100vh;
-    border-radius: 15px 0 0 0;
-    box-shadow: inset $box-shadow;
-    border: 1px solid #edeff3;
-
-    h2 {
-      color: $color-secondary;
-      margin-bottom: -15px;
-      padding-left: 15px;
-      position: relative;
-      display: block;
-      font-weight: 700;
-      z-index: 1;
-
-      &::before {
-        content: "#";
-        color: $color-tertiary;
-        display: flex;
-        font-size: 1.4em;
-        position: absolute;
-        left: -20px;
-        width: 30px;
-        top: 0px;
-        bottom: 0;
-        z-index: -1;
-      }
-    }
   }
 }

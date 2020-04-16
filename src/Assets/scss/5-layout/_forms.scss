@@ -1,8 +1,11 @@
 ::placeholder,
 select:invalid,
 select option[value=""] {
-  color: $color-secondary;
-  font-weight: 400;
+  color: $color-tertiary;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 label {
@@ -21,24 +24,20 @@ select {
   font-family: $font-primary;
   font-size: 16px;
   line-height: 1.3;
-  color: $color-secondary;
+  color: $color-primary;
   resize: none;
   font-weight: 700;
-  background-color: #eceef2;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  border: 0;
+  border-bottom: 1px solid $color-tertiary;
+  outline: 1px solid transparent;
   min-height: $inputHeight;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  background-color: transparent;
   position: relative;
-  padding: 0 16px;
-  box-shadow: $box-shadow;
+  padding: 1px 6px 0 6px;
 
   &:focus,
   &:active {
     outline: 1px solid transparent;
-    border: 1px solid $color-tertiary;
   }
 
   &.parsley-error {
