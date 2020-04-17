@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { PostData } from "../../Utils/PostData";
+import Logo from "../../Components/Icons/logo";
 
 class Login extends Component {
   constructor() {
@@ -38,30 +39,33 @@ class Login extends Component {
       return <Redirect to={"/home"} />;
     }
     return (
-      <div className="login h-100 w-100">
+      <div className="login w-100">
+        <Logo fill1="#0a1032" fill2="#f8d57e" />
         <div className="row justify-content-center align-items-center">
           <div className="box">
             <div className="box__titulo">
-              <h2>Login</h2>
+              <h2 className="titulo">Login</h2>
             </div>
             <div className="box__conteudo">
+              <label>Usuário</label>
               <input
-                placeholder="Usuário"
+                placeholder="Digite seu usuário"
                 type="text"
                 name="username"
-                className="mb-4 form-control-lg form-control w-100"
+                className="mb-3 form-control-lg form-control w-100"
                 onChange={this.onChange}
               />
+              <label>Senha</label>
               <input
-                placeholder="Senha"
+                placeholder="Digite sua senha"
                 type="password"
                 name="password"
-                className="mb-4 form-control-lg form-control w-100"
+                className="mb-3 form-control-lg form-control w-100"
                 onChange={this.onChange}
               />
               <input
                 type="submit"
-                className="mt-2 w-100 btn btn-primary btn-lg btn-block"
+                className="mt-3 w-100 btn btn-primary btn-lg btn-block"
                 value="Entrar"
                 onClick={this.login}
               />

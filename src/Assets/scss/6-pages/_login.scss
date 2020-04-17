@@ -3,18 +3,24 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(
-      ellipse at center,
-      rgba(11, 24, 41, 0.88) 0%,
-      rgba(11, 24, 41, 1) 100%
-    ),
-    url(../../img/login_bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  flex-direction: column;
   padding: 40px 60px 100px;
+  height: 100vh;
 
   .box {
     max-width: 480px;
+    box-shadow: none;
+
+    .box__titulo {
+      padding: 20px 55px 0px;
+      text-align: center;
+    }
+    .box__conteudo {
+      padding: 30px 55px 45px;
+    }
+  }
+
+  svg {
+    margin-bottom: 2rem;
   }
 }

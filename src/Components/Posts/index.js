@@ -102,54 +102,59 @@ export default class Posts extends Component {
     ));
     return (
       <>
-        <h2>Publicações</h2>
         <div className="box">
-          <table id="tabelaPosts">
-            <thead>
-              <tr>
-                <th
-                  onClick={() =>
-                    this.ordenarColuna("shortcode_media.taken_at_timestamp")
-                  }
-                >
-                  Posts
-                  <span> ({this.props.resultado.length} encontrados)</span>{" "}
-                </th>
-                <th>Thumb</th>
-                {/* <th onClick={() => this.ordenarColuna("shortcode_media.taxaEngajamento")}>Eng. %</th> */}
-                <th
-                  onClick={() =>
-                    this.ordenarColuna(
-                      "shortcode_media.edge_media_preview_like.count"
-                    )
-                  }
-                >
-                  Likes
-                </th>
-                <th
-                  onClick={() =>
-                    this.ordenarColuna(
-                      "shortcode_media.edge_media_preview_comment.count"
-                    )
-                  }
-                >
-                  Comentários
-                </th>
-              </tr>
-            </thead>
-            <tbody>{publicacoes}</tbody>
-          </table>
-          {this.props.resultado.length <= 0 && (
-            <ul className="placeholder">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          )}
+          <h6>Publicações</h6>
+          <div className="box__conteudo">
+            <table id="tabelaPosts">
+              <thead>
+                <tr>
+                  <th
+                    onClick={() =>
+                      this.ordenarColuna("shortcode_media.taken_at_timestamp")
+                    }
+                  >
+                    Posts
+                    <span>
+                      {" "}
+                      ({this.props.resultado.length} encontrados)
+                    </span>{" "}
+                  </th>
+                  <th>Thumb</th>
+                  {/* <th onClick={() => this.ordenarColuna("shortcode_media.taxaEngajamento")}>Eng. %</th> */}
+                  <th
+                    onClick={() =>
+                      this.ordenarColuna(
+                        "shortcode_media.edge_media_preview_like.count"
+                      )
+                    }
+                  >
+                    Likes
+                  </th>
+                  <th
+                    onClick={() =>
+                      this.ordenarColuna(
+                        "shortcode_media.edge_media_preview_comment.count"
+                      )
+                    }
+                  >
+                    Comentários
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{publicacoes}</tbody>
+            </table>
+            {this.props.resultado.length <= 0 && (
+              <ul className="placeholder">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            )}
+          </div>
         </div>
       </>
     );

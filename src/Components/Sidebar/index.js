@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Logo from "../../Assets/img/logo.svg";
 import DadosGerais from "../Icons/dadosGerais";
 import Posts from "../Icons/posts";
 import Hashtags from "../Icons/hashtags";
 import Performance from "../Icons/performance";
 import Comparacao from "../Icons/comparacao";
+import Logo from "../Icons/logo";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="Sidebar">
-        <img src={Logo} alt="Stargazing" />
+        <Logo class="logo" fill1="#0a1032" fill2="#f8d57e" />
         <div className="sidebar__wrapper">
           <ul>
             <li>

@@ -12,28 +12,29 @@ $bp-ultrawide: 1580px;
 
 // Colors
 
-$color-primary: #0b1829 !default;
-$color-white: #fff !default;
-$color-secondary: #000821 !default;
-$color-tertiary: #08b47d !default;
-$color-error: #f14668 !default;
-$color-bg: #0b1829 !default;
+$color-primary: #0a1032 !default;
+$color-secondary: #f8d57e !default;
+$color-text: #b5b7c3 !default;
+
+$color-bg: #f4f8fb !default;
 $color-menu: #ffffff !default;
 $color-border: #ededed !default;
+
+$color-input: #d3d9f0 !default;
+$color-backinput: #f9fbff !default;
+
+$color-white: #fff !default;
 // Fonts
 
-$color-2: #26243e !default;
-
-$font-base-size: 16px !default;
-$font-primary: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+$font-base-size: 15px !default;
+$font-primary: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol" !important;
 
 // Miscellaneous
 $image-path: "/assets/images";
 
-$inputHeight: 34px !default;
-$inputHeightMobile: 50px !default;
+$inputHeight: 50px !default;
 
-$border-radius: 3px !default;
+$border-radius: 5px !default;
 $box-shadow: 0 0 15px 6px darken($color-bg, 3%) !default;

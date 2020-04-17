@@ -26,8 +26,8 @@ button {
   }
 
   &.btn-primary {
-    background-color: $color-tertiary;
-    color: $color-white;
+    background-color: $color-secondary;
+    color: $color-primary;
 
     .icone {
       fill: $color-white;
@@ -35,17 +35,17 @@ button {
   }
 
   &.btn-secondary {
-    background-color: $color-secondary;
-    color: $color-white;
+    background-color: $color-primary;
+    color: $color-secondary;
 
     .icone {
-      fill: $color-white;
+      fill: $color-primary;
     }
   }
 
   &.btn-branco {
     background-color: $color-white;
-    color: $color-secondary;
+    color: $color-primary;
   }
   &.btn-google {
     background-color: $color-primary;

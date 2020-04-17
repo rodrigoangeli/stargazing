@@ -1,5 +1,5 @@
 .App {
-  background-color: $color-white;
+  background-color: $color-primary;
 }
 
 .Main {
@@ -11,5 +11,33 @@
     background-color: $color-bg;
     overflow: scroll;
     height: 100vh;
+    padding: 35px 45px;
+    box-shadow: inset $box-shadow;
+    border-radius: 25px 0 0 0;
+  }
+}
+
+h2.titulo,
+h3.titulo,
+h4.titulo {
+  color: $color-primary;
+  margin-top: 0;
+  padding-left: 15px;
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  z-index: 1;
+
+  &::before {
+    content: "#";
+    color: $color-secondary;
+    display: flex;
+    font-size: 1.4em;
+    position: absolute;
+    left: -20px;
+    width: 30px;
+    top: 0px;
+    bottom: 0;
+    z-index: -1;
   }
 }

@@ -1,17 +1,16 @@
 ::placeholder,
 select:invalid,
 select option[value=""] {
-  color: $color-tertiary;
-  font-weight: 500;
-  letter-spacing: 1.1px;
-  font-size: 14px;
-  text-transform: uppercase;
+  color: darken($color-input, 10%);
+  font-weight: 400;
+  font-size: 16px;
 }
 
 label {
   margin-bottom: 4px;
   display: block;
-  font-size: 13px;
+  font-size: 0.9rem;
+  color: darken($color-text, 9%);
 }
 
 input,
@@ -27,30 +26,24 @@ select {
   color: $color-primary;
   resize: none;
   font-weight: 700;
-  border: 0;
-  border-bottom: 1px solid $color-tertiary;
+  border: 1px solid $color-input;
   outline: 1px solid transparent;
   min-height: $inputHeight;
   background-color: transparent;
   position: relative;
-  padding: 1px 6px 0 6px;
+  border-radius: $border-radius;
+  padding: 0 15px 0 15px;
 
   &:focus,
   &:active {
     outline: 1px solid transparent;
-  }
-
-  &.parsley-error {
-    border: 1px solid $color-error;
+    border: 1px solid $color-secondary;
+    background-color: $color-backinput;
   }
 
   &:disabled {
     background: #f5f7fb;
     border: 1px solid #dadada;
-  }
-
-  @include max-width($bp-medium) {
-    min-height: $inputHeightMobile;
   }
 }
 
@@ -95,6 +88,5 @@ input {
     list-style: none;
     font-size: 0.75rem;
     margin-top: 2px;
-    color: $color-error;
   }
 }

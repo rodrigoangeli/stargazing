@@ -19,9 +19,9 @@ function createWindow() {
     autoHideMenuBar: true,
     show: false,
     frame: false,
-    backgroundColor: "#0f70e0",
+    backgroundColor: "#1F3BB3",
     //transparent: true,
-    fullscreen: true,
+    //fullscreen: true,
     icon: path.join(__dirname, "assets/logo.png"),
   });
 

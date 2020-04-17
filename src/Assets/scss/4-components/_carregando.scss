@@ -24,7 +24,7 @@
       color: $color-primary;
 
       span {
-        color: $color-tertiary;
+        color: $color-secondary;
       }
     }
     .carregando__barra {
@@ -36,7 +36,7 @@
       position: relative;
 
       .carregando__progresso {
-        background-color: $color-tertiary;
+        background-color: $color-secondary;
         position: absolute;
         bottom: 0;
         left: 0;

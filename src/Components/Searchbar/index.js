@@ -26,9 +26,10 @@ export default class Searchbar extends Component {
 
   render() {
     return (
-      <div className="Searchbar">
-        <h5>Adicione um perfil para ser rastreado</h5>
-        <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
+      <div className="Searchbar active">
+        <h3 className="titulo my-4 ml-4">Overview</h3>
+
+        {/*  <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
           <input
             type="text"
             placeholder="@"
@@ -40,7 +41,7 @@ export default class Searchbar extends Component {
           <button className="w-100" onClick={this.hanldeSubmit} type="button">
             Buscar
           </button>
-        </form>
+        </form> */}
       </div>
     );
   }
