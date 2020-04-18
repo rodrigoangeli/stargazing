@@ -1,21 +1,17 @@
 .Sidebar {
   height: calc(100vh - 30px);
-  width: 77px;
-  padding-bottom: 60px;
+  width: 210px;
   display: flex;
   position: relative;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  justify-content: baseline;
   background-color: $color-primary;
   z-index: 3;
 
   .logo {
     display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 15px;
-    padding: 0 17px;
-    width: 77px;
+    margin: 0 auto 50px;
+    width: 65px;
   }
 
   &.active {
@@ -23,65 +19,114 @@
   }
 
   .sidebar__wrapper {
-    height: 100%;
-    width: 77px;
+    width: 100%;
     top: 0;
     left: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-end;
 
-    ul {
-      width: 100%;
+    ul.nav {
+      width: 94%;
+      > li {
+        > a.nav__titulo {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
 
-      li {
-        margin-bottom: 28px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        font-size: 12px;
-        cursor: pointer;
-        padding: 12px 0;
-        position: relative;
+          font-size: 13px;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          cursor: pointer;
+          margin: 40px 3px 0;
+          position: relative;
+          margin-right: -1px;
+        }
 
         &:nth-last-child(1) {
-          margin-bottom: 0;
+          > a.nav__titulo {
+            margin-bottom: 0;
+          }
         }
 
         svg {
           height: 24px;
           width: 24px;
           fill: rgba($color-white, 0.5);
-          transition: all 150ms ease-in;
+          margin-left: 20px;
         }
         span {
-          color: $color-white;
-          margin-top: 2px;
-          opacity: 0;
-          transition: all 150ms ease-in;
+          color: rgba($color-white, 0.5);
+          margin-left: 13px;
+          font-weight: 600;
         }
 
         &:hover {
-          svg {
-            fill: $color-white;
-            transition: all 150ms ease-in;
-          }
-
+          svg,
           span {
-            opacity: 1;
+            color: $color-white;
+            fill: $color-white;
             transition: all 150ms ease-in;
           }
         }
 
         &.active {
-          background-color: white;
           border-radius: 25px 0 0 25px;
+          position: relative;
 
-          svg {
-            fill: $color-primary;
+          &:hover {
+            svg,
+            span {
+              transition: none;
+            }
+          }
+
+          > a.nav__titulo {
+            svg,
+            span {
+              color: $color-primary;
+              fill: $color-primary;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              right: 0;
+              bottom: -25px;
+              height: 100%;
+              width: 100%;
+              background-image: url(../../img/sidebar.svg);
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+              height: 74px;
+              z-index: -1;
+            }
+          }
+          > ul {
+            max-height: 5000px;
+            padding: 30px 0 0 0;
+          }
+        }
+
+        > ul {
+          max-height: 0;
+          padding: 0;
+          overflow: hidden;
+          list-style: none;
+          padding: 0;
+          width: 100%;
+
+          li {
+            color: rgba($color-white, 0.5);
+            font-size: 14px;
+            margin-left: 62px;
+            margin-bottom: 15px;
+
+            &:first-child {
+              margin-top: 0;
+            }
           }
         }
       }

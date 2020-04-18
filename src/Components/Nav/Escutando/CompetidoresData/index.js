@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 
-class DadosGerais extends Component {
+export default class CompetidoresData extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
+
   render() {
     return (
       <>
-        <h1>Dados Gerais</h1>
-        <div className="box"></div>
+        <h2 className="titulo">asdasdas</h2>
       </>
     );
   }
 }
-
-export default DadosGerais;

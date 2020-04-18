@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar";
 import Searchbar from "../../Components/Searchbar";
-import Header from "../../Components/Header";
-import DadosGerais from "../../Components/DadosGerais";
-import Posts from "../../Components/Posts";
+import { BrowserRouter as Router } from "react-router-dom";
+import Nav from "../../Components/Nav";
 
 const { ipcRenderer } = window.require("electron");
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
@@ -12,14 +12,13 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirectToReferrer: false,
       resultado: [],
       nome: "",
-      carregando: false,
-      limite: 35,
     };
     this.gerarDados = this.gerarDados.bind(this);
     this.buscarIg = this.buscarIg.bind(this);
-    this.setPosts = this.setPosts.bind(this);
+    this.navComponentes = this.navComponentes.bind(this);
   }
 
   componentDidMount() {
@@ -29,28 +28,7 @@ class Main extends Component {
     ipcRenderer.removeListener(SEND_TO_RENDERER, this.gerarDados);
   }
 
-  gerarDados(event, data) {
-    var a = '{"shortcode_media"';
-    if (data.indexOf(a) !== -1) {
-      this.setState({
-        resultado: [
-          ...this.state.resultado,
-          ...JSON.parse(
-            "[" + data.split(/(?={"shortcode_media")/).join(",") + "]"
-          ),
-        ],
-      });
-    } else {
-      this.setState({
-        resultado: [...this.state.resultado, JSON.parse(data)],
-      });
-    }
-    console.log(this.state.resultado);
-  }
-
-  setPosts(posts) {
-    this.setState({ resultado: posts });
-  }
+  gerarDados(event, data) {}
 
   buscarIg(value) {
     this.setState({
@@ -60,43 +38,29 @@ class Main extends Component {
     ipcRenderer.send(CATCH_ON_MAIN, value + " " + this.state.limite);
   }
 
+  navComponentes(val) {
+    this.setState({
+      nav: val,
+    });
+  }
+
   render() {
+    if (this.state.redirectToReferrer) {
+      return <Redirect to={"/"} />;
+    }
     return (
       <div className="Main">
-        {this.state.carregando &&
-          this.state.limite != this.state.resultado.length && (
-            <div className="Carregando">
-              <div className="carregando__info">
-                <h4>
-                  Coletando dados de <span>@{this.state.nome}</span>
-                </h4>
-                <div className="p3">
-                  Isso pode levar alguns minutos, aguarde.
-                </div>
-                <div className="carregando__barra">
-                  <div
-                    className="carregando__progresso"
-                    style={{
-                      width:
-                        (this.state.resultado.length / this.state.limite) *
-                          100 +
-                        "%",
-                    }}
-                  ></div>
-                </div>
-              </div>
+        <Router>
+          <Sidebar />
+
+          <div className="Content">
+            <Searchbar buscarIg={this.buscarIg}></Searchbar>
+
+            <div className="Componentes">
+              <Nav />
             </div>
-          )}
-
-        <Sidebar></Sidebar>
-        <Searchbar buscarIg={this.buscarIg}></Searchbar>
-
-        <div className="Content">
-          <Posts
-            resultado={this.state.resultado}
-            setPosts={this.setPosts}
-          ></Posts>
-        </div>
+          </div>
+        </Router>
       </div>
     );
   }

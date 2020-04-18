@@ -1,22 +1,18 @@
 .login {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 40px 60px 100px;
   height: 100vh;
 
-  .box {
-    max-width: 480px;
-    box-shadow: none;
+  .login__box {
+    height: 100%;
+    background-color: $color-white;
+    width: 42vw;
+    min-width: 574px;
+    padding: 0 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-    .box__titulo {
-      padding: 20px 55px 0px;
-      text-align: center;
-    }
-    .box__conteudo {
-      padding: 30px 55px 45px;
+    .login__form {
+      width: 100%;
     }
   }
 

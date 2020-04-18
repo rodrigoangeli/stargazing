@@ -1,18 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import Titlebar from "./Components/Titlebar";
-import Main from "./Pages/Main";
-import Cadastro from "./Pages/Cadastro";
-import Login from "./Pages/Login";
+import Routes from "./routes";
 
-function App() {
-  return (
-    <div className="App">
-      <Titlebar></Titlebar>
-      {/*   <Cadastro></Cadastro>
-      <Login></Login> */}
-      <Main></Main>*/}
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      appName: "Stargazing",
+      anoAtual: new Date().getFullYear(),
+      home: false,
+    };
+  }
+  render() {
+    return (
+      <div className="App">
+        <Titlebar></Titlebar>
+        <Routes name={this.state.appName} />
+      </div>
+    );
+  }
 }
-
 export default App;

@@ -27,8 +27,6 @@ export default class Searchbar extends Component {
   render() {
     return (
       <div className="Searchbar active">
-        <h3 className="titulo my-4 ml-4">Overview</h3>
-
         {/*  <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
           <input
             type="text"

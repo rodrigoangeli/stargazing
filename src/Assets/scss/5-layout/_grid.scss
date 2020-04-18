@@ -9,11 +9,13 @@
   .Content {
     flex: 1;
     background-color: $color-bg;
-    overflow: scroll;
-    height: 100vh;
-    padding: 35px 45px;
-    box-shadow: inset $box-shadow;
     border-radius: 25px 0 0 0;
+
+    .Componentes {
+      padding: 35px 45px;
+      overflow: scroll;
+      height: 100vh;
+    }
   }
 }
 
@@ -38,6 +40,17 @@ h4.titulo {
     width: 30px;
     top: 0px;
     bottom: 0;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    width: 100%;
+    height: 8px;
+    background-color: $color-secondary;
+    opacity: 0.33;
     z-index: -1;
   }
 }
