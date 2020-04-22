@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Publicacoes extends Component {
+export default class Geral extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -9,7 +9,7 @@ export default class Publicacoes extends Component {
   render() {
     return (
       <>
-        <h2 className="titulo">Publicações</h2>
+        <h2 className="titulo">Geral</h2>
       </>
     );
   }

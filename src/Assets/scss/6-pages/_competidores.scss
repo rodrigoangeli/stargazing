@@ -1,0 +1,26 @@
+.modal__concorrente {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+
+  .modal__perfil {
+    padding: 15px 15px;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+
+    .modal__dados {
+      flex-direction: row;
+      align-items: flex-start;
+      display: flex;
+
+      .modal__foto {
+        img {
+          border-radius: 50%;
+          width: 45px;
+        }
+      }
+    }
+  }
+}

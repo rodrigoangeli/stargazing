@@ -2,6 +2,7 @@
  * Global variables
  */
 
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800,900&display=swap");
 // Breakpoints
 
 $bp-small: 768px;
@@ -12,22 +13,32 @@ $bp-ultrawide: 1580px;
 
 // Colors
 
-$color-primary: #0a1032 !default;
+$color-primary: #000517 !default;
 $color-secondary: #f8d57e !default;
-$color-text: #b5b7c3 !default;
+
+$color-textH: #2e2f3a !default;
+$color-text: #6e6f77 !default;
 
 $color-bg: #f4f8fb !default;
 $color-menu: #ffffff !default;
-$color-border: #ededed !default;
+$color-border: #e9e9e9 !default;
 
 $color-input: #e4e7eb !default;
 $color-backinput: #fcfdfe !default;
 
 $color-white: #fff !default;
+
+$color-error: #f12b2c !default;
+$color-positivo: #55ae55 !default;
+
+$color-off1: #f63770 !default;
+$color-off2: #fc8a4a !default;
+$color-off3: #5d8eff !default;
+
 // Fonts
 
 $font-base-size: 15px !default;
-$font-primary: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+$font-primary: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol" !important;
 
@@ -36,5 +47,7 @@ $image-path: "/assets/images";
 
 $inputHeight: 50px !default;
 
-$border-radius: 5px !default;
+$border-radius: 8px !default;
 $box-shadow: 0 0 15px 6px darken($color-bg, 3%) !default;
+
+$transition: 300ms cubic-bezier(0.2, 0, 0, 1);

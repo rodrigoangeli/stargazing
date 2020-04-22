@@ -14,11 +14,16 @@ button {
   font-family: $font-primary;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-weight: 700;
+  font-weight: 500;
   padding-left: 22px;
   padding-right: 22px;
   min-width: 71.19349550499538px;
   border: none;
+
+  &.sm {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
 
   &:active,
   &:focus {
@@ -65,10 +70,23 @@ button {
   }
 
   &.btn-link {
+    background-color: transparent;
     &.primary {
       color: $color-primary;
     }
     &.secondary {
+      color: $color-secondary;
+    }
+  }
+
+  &.btn-transparente {
+    background-color: transparent;
+    &.primary {
+      border: 1px solid $color-primary;
+      color: $color-primary;
+    }
+    &.secondary {
+      border: 1px solid $color-secondary;
       color: $color-secondary;
     }
   }

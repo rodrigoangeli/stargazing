@@ -1,7 +1,6 @@
 .Searchbar {
-  height: 60px;
   width: 100%;
-  background-color: $color-menu;
+  background-color: $color-backinput;
   border-bottom: 1px solid $color-border;
   padding: 0;
   overflow: hidden;
@@ -9,14 +8,16 @@
   z-index: 1;
   border-radius: 25px 0 0 0;
   box-shadow: 0px 27px 13px -14px #e9f1f7;
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-right: 50px;
   .searchbar__form {
     flex: 1;
     position: relative;
-    margin-top: 1rem;
-
-    button {
-      margin-top: 1rem;
+    input {
+      width: 100%;
+      border: none;
     }
   }
 }

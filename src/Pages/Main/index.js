@@ -18,7 +18,6 @@ class Main extends Component {
     };
     this.gerarDados = this.gerarDados.bind(this);
     this.buscarIg = this.buscarIg.bind(this);
-    this.navComponentes = this.navComponentes.bind(this);
   }
 
   componentDidMount() {
@@ -36,12 +35,6 @@ class Main extends Component {
       nome: value,
     });
     ipcRenderer.send(CATCH_ON_MAIN, value + " " + this.state.limite);
-  }
-
-  navComponentes(val) {
-    this.setState({
-      nav: val,
-    });
   }
 
   render() {

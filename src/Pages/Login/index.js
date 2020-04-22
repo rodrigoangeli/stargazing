@@ -34,10 +34,10 @@ class Login extends Component {
   }
   render() {
     if (this.state.redirectToReferrer) {
-      return <Redirect to={"/Main"} />;
+      return <Redirect to={"/Main/Dashboard"} />;
     }
     if (sessionStorage.getItem("userData")) {
-      return <Redirect to={"/Main"} />;
+      return <Redirect to={"/Main/Dashboard"} />;
     }
     return (
       <div className="login w-100">

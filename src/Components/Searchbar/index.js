@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Lupa from "../Icons/lupa";
 
 export default class Searchbar extends Component {
   constructor(props) {
@@ -27,19 +28,21 @@ export default class Searchbar extends Component {
   render() {
     return (
       <div className="Searchbar active">
-        {/*  <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
-          <input
-            type="text"
-            placeholder="@"
-            className="flex-1 w-100"
-            onChange={this.onInputChange}
-            name="name"
-            value={this.state.nome}
-          ></input>
-          <button className="w-100" onClick={this.hanldeSubmit} type="button">
-            Buscar
-          </button>
-        </form> */}
+        <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
+          <div className="input-wrapper">
+            <Lupa />
+            <input
+              type="text"
+              placeholder='Tente procurando por "Média de comentários recebidos"'
+              onChange={this.onInputChange}
+              name="name"
+              value={this.state.nome}
+            ></input>
+          </div>
+        </form>
+        <button type="button" className="sm btn-transparente primary">
+          Exportar
+        </button>
       </div>
     );
   }

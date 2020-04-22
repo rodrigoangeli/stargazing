@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Analytics extends Component {
+export default class Calendario extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -9,7 +9,7 @@ export default class Analytics extends Component {
   render() {
     return (
       <>
-        <h2 className="titulo">Analytics</h2>
+        <h2 className="titulo">Calendario</h2>
       </>
     );
   }

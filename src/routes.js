@@ -2,22 +2,34 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./Pages/Main";
 import Login from "./Pages/Login";
-import Analytics from "./Components/Nav/Analytics";
-import Conversa from "./Components/Nav/Conversa";
-import Dashboard from "./Components/Nav/Dashboard";
-import Escutando from "./Components/Nav/Escutando";
-import Publicacoes from "./Components/Nav/Publicações";
+import { menuItems } from "./Utils/nav";
+
+const rotas = menuItems.map(({ name, comp, subMenus }, i) => {
+  return (
+    <Route exact path={"/Main/" + name} key={i}>
+      <Main>{comp}</Main>
+    </Route>
+  );
+});
+
+const subRotas = menuItems.map(({ name, comp, subMenus }, i) => {
+  var subnome = name;
+  return subMenus.map(({ name, comp }, j) => {
+    return (
+      <Route exact path={"/Main/" + subnome + "/" + name} key={j}>
+        <Main>{comp}</Main>
+      </Route>
+    );
+  });
+});
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route path="/Main" component={Main} />
-      <Route path="/Main/Dashboard" component={Dashboard} />
-      <Route path="/Main/Analytics" component={Analytics} />
-      <Route path="/Main/Publicacoes" component={Publicacoes} />
-      <Route path="/Main/Conversa" component={Conversa} />
-      <Route path="/Main/Escutando" component={Escutando} />
+      <Route exact path="/Main/Dashboard" component={Main} />
+      {rotas}
+      {subRotas}
     </Switch>
   </BrowserRouter>
 );

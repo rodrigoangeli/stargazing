@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Escutando extends Component {
+export default class Stories extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -9,7 +9,7 @@ export default class Escutando extends Component {
   render() {
     return (
       <>
-        <h2 className="titulo">Escutando</h2>
+        <h2 className="titulo">Stories</h2>
       </>
     );
   }
