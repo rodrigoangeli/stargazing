@@ -1,7 +1,7 @@
 export function PostData(type, userData) {
   //console.log(userData); ID DO USUARIO
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  let BaseURL = "https://angelidev.com/instaphp/index.php";
+  let BaseURL = "https://angelidev.com/instaphp/" + type + ".php";
   return new Promise((resolve, reject) => {
     fetch(proxyurl + BaseURL + "?tp=" + type, {
       method: "POST",
