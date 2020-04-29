@@ -14,10 +14,9 @@
       padding: 15px 30px 0 30px;
 
       h6 {
-        color: rgba($color-primary, 0.7);
-        font-size: 13px;
+        color: #29292b;
+        font-size: 15px;
         font-weight: 600;
-        text-transform: uppercase;
       }
     }
 
@@ -79,10 +78,19 @@
       }
     }
 
+    &.habitos {
+      .box__dados {
+        flex: 0 0 20%;
+        margin-right: 15px;
+      }
+      svg {
+        flex-grow: 1;
+      }
+    }
+
     &.grafico {
       .box__titulo {
         padding: 15px 30px 8px 30px;
-        border-bottom: 1px solid $color-border;
       }
       .box__conteudo {
         padding: 15px 30px 15px 30px;
@@ -113,17 +121,22 @@
 }
 
 .box__informacao {
-  background-color: rgba($color-off3, 0.15);
+  background-color: $color-secondary;
   border-radius: $border-radius;
-  border: 2px solid rgba($color-off3, 0.7);
   justify-content: center;
+  text-align: center;
+  padding-right: 29%;
+  padding-left: 29%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   h4 {
     color: $color-primary;
     font-weight: 600;
   }
   p {
-    color: $color-text;
+    color: $color-primary;
   }
 }
 
@@ -141,6 +154,27 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+
+  &.off1 {
+    background-color: rgba($color-off1, 0.15);
+    svg {
+      fill: $color-off1;
+    }
+  }
+
+  &.off2 {
+    background-color: rgba($color-off2, 0.15);
+    svg {
+      fill: $color-off2;
+    }
+  }
+
+  &.off3 {
+    background-color: rgba($color-off3, 0.15);
+    svg {
+      fill: $color-off3;
+    }
+  }
 
   svg {
     width: 100%;

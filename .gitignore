@@ -15,7 +15,13 @@
 /public/howto.txt
 /public/*.md
 
-/src/Utils/php/*
+/src/Utils/php
+/src/Utils/*.json
+/src/Utils/json
+/src/Utils/consultarMudanca
+
+
+/src/Utils/bckp
 
 # misc
 .DS_Store

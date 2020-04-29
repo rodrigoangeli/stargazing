@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { PostData } from "../../../Utils/PostData";
 
 export default class AddConcorrente extends Component {
   constructor(props) {
@@ -7,10 +8,11 @@ export default class AddConcorrente extends Component {
       inputModal: "",
       enviarConcorrente: "",
       conta: undefined,
-      erro: "",
+      aviso: "",
       carregando: false,
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.addConcorrente = this.addConcorrente.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -30,7 +32,7 @@ export default class AddConcorrente extends Component {
       inputModal: event.target.value,
       carregando: true,
       conta: undefined,
-      erro: "",
+      aviso: "",
     });
     const endpoint = `https://www.instagram.com/${value}/?__a=1`;
 
@@ -41,7 +43,7 @@ export default class AddConcorrente extends Component {
           .then((response) => {
             if (response.status === 404) {
               this.setState({
-                erro: "Esse perfil não existe",
+                aviso: "Esse perfil não existe",
                 carregando: false,
               });
             } else {
@@ -56,7 +58,7 @@ export default class AddConcorrente extends Component {
               ) {
                 this.setState({
                   carregando: false,
-                  erro:
+                  aviso:
                     "Esse perfil não é de negócios ou se encontra em modo privado",
                 });
               } else {
@@ -81,11 +83,32 @@ export default class AddConcorrente extends Component {
     });
   }
 
+  addConcorrente(e) {
+    let data = JSON.parse(sessionStorage.getItem("userData"));
+    let postData = {
+      user_id: data.userData.user_id,
+      concorrente_user: this.state.conta.graphql.user.username,
+      concorrente_nome: this.state.conta.graphql.user.full_name,
+      concorrente_picture: this.state.conta.graphql.user.profile_pic_url,
+    };
+    this.setState({
+      conta: undefined,
+      carregando: true,
+    });
+    PostData("addConcorrente", postData).then((result) => {
+      let responseJson = result;
+      this.setState({
+        aviso: "Perfil adicionado como concorrente",
+        carregando: false,
+      });
+      //this.setState({ data: responseJson.feedData });
+    });
+  }
+
   render() {
     return (
       <div>
         <h3>Escreva o nome do perfil que você quer adicionar</h3>
-
         <input
           type="text"
           placeholder="Digite o perfil aqui"
@@ -96,7 +119,7 @@ export default class AddConcorrente extends Component {
         ></input>
         <div className="modal__concorrente">
           {this.state.carregando && <div>carregando</div>}
-          {this.state.erro}
+          {this.state.aviso}
           {this.state.conta !== undefined && (
             <div className="modal__perfil">
               <div className="modal__dados">
@@ -114,7 +137,7 @@ export default class AddConcorrente extends Component {
 
               <button
                 type="button"
-                onClick={(e) => this.handleSubmit(e)}
+                onClick={(e) => this.addConcorrente(e)}
                 className="btn btn-primary w-100"
               >
                 Adicionar esse perfil

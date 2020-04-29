@@ -24,3 +24,15 @@
     }
   }
 }
+
+svg {
+  .habitosRow {
+    fill: #f1f5fb;
+  }
+  #habitosHora,
+  #habitosData {
+    font-family: $font-primary;
+    fill: $color-text;
+    font-size: 11px;
+  }
+}

@@ -35,55 +35,89 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __asyncValues = (this && this.__asyncValues) || function (o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-};
 exports.__esModule = true;
-var instamancer_1 = require("instamancer");
-var result = [];
-var user = instamancer_1.createApi("user", process.argv[2], {
-    total: parseFloat(process.argv[3]),
-    headless: true,
-    fullAPI: true
-});
+var instaTouch = require("instatouch");
+var request = require("request");
+var fetch = require("node-fetch");
+var dadosGerais = {};
+var instaUser = process.argv[2];
+var resultado = {};
+var proxyurl = "https://cors-anywhere.herokuapp.com/";
+var BaseURL = "https://angelidev.com/instaphp/index.php";
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, _b, post, e_1_1;
-    var e_1, _c;
-    return __generator(this, function (_d) {
-        switch (_d.label) {
+    var options, user, i, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _d.trys.push([0, 5, 6, 11]);
-                _a = __asyncValues(user.generator());
-                _d.label = 1;
-            case 1: return [4 /*yield*/, _a.next()];
+                options = {
+                    count: 20,
+                    timeout: 32
+                };
+                request({
+                    url: "https://www.instagram.com/" + instaUser + "/?__a=1",
+                    json: true
+                }, function (err, response, body) {
+                    dadosGerais["alias"] = body.graphql.user.username;
+                    dadosGerais["name"] = body.graphql.user.full_name;
+                    dadosGerais["profilePicture"] = body.graphql.user.profile_pic_url_hd;
+                    dadosGerais["description"] = body.graphql.user.biography;
+                    dadosGerais["numberPosts"] =
+                        body.graphql.user.edge_owner_to_timeline_media.count;
+                    dadosGerais["numberFollowers"] = body.graphql.user.edge_followed_by.count;
+                    dadosGerais["numberFollowing"] = body.graphql.user.edge_follow.count;
+                });
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, 4, 6]);
+                return [4 /*yield*/, instaTouch.user(instaUser, options)];
             case 2:
-                if (!(_b = _d.sent(), !_b.done)) return [3 /*break*/, 4];
-                post = _b.value;
-                console.log(JSON.stringify(post));
-                _d.label = 3;
-            case 3: return [3 /*break*/, 1];
-            case 4: return [3 /*break*/, 11];
+                user = _a.sent();
+                resultado = Object.assign(dadosGerais, user);
+                dadosGerais["data_recolhida"] = new Date()
+                    .toISOString()
+                    .replace(/T/, " ")
+                    .replace(/\..+/, "");
+                for (i = 0; i < dadosGerais.collector.length; i++) {
+                    dadosGerais.collector[i].takenAtGMT = new Date(dadosGerais.collector[i].takenAtGMT)
+                        .toISOString()
+                        .replace(/T/, " ")
+                        .replace(/\..+/, "");
+                    dadosGerais.collector[i]["engagement"] =
+                        ((dadosGerais.collector[i].likes + dadosGerais.collector[i].comments) /
+                            dadosGerais.numberFollowers) *
+                            100;
+                    dadosGerais.collector[i]["engagement"] = parseFloat(dadosGerais.collector[i]["engagement"].toFixed(2));
+                    if (dadosGerais.collector[i]["isVideo"]) {
+                        dadosGerais.collector[i]["tipoPost"] = "vid";
+                    }
+                    else {
+                        dadosGerais.collector[i]["tipoPost"] = "img";
+                    }
+                }
+                return [3 /*break*/, 6];
+            case 3:
+                error_1 = _a.sent();
+                console.log(error_1);
+                return [3 /*break*/, 6];
+            case 4: return [4 /*yield*/, fetch(BaseURL + "?tp=addPosts", {
+                    method: "post",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dadosGerais)
+                })
+                    .then(function (response) {
+                    return response.text().then(function (res) {
+                        console.log(res);
+                    });
+                })["catch"](function (error) {
+                    console.log(error);
+                })];
             case 5:
-                e_1_1 = _d.sent();
-                e_1 = { error: e_1_1 };
-                return [3 /*break*/, 11];
-            case 6:
-                _d.trys.push([6, , 9, 10]);
-                if (!(_b && !_b.done && (_c = _a["return"]))) return [3 /*break*/, 8];
-                return [4 /*yield*/, _c.call(_a)];
-            case 7:
-                _d.sent();
-                _d.label = 8;
-            case 8: return [3 /*break*/, 10];
-            case 9:
-                if (e_1) throw e_1.error;
+                _a.sent();
                 return [7 /*endfinally*/];
-            case 10: return [7 /*endfinally*/];
-            case 11: return [2 /*return*/];
+            case 6: return [2 /*return*/];
         }
     });
 }); })();

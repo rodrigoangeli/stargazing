@@ -9,19 +9,12 @@ const Grafico2 = (props) => (
       </div>
       <div className="box__conteudo">
         <GraficoLine
-          dados={[65, 59, 80, 81, 56, 55, 80]}
-          labels={[
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-          ]}
-          cor="rgba(248, 213, 126,.5)"
-          fillcor="rgba(248, 213, 126,.25)"
-          bgcor="rgba(248, 213, 126,1)"
+          gapNumero={props.gapNumero}
+          dados={props.dados}
+          labels={props.labels}
+          cor="rgba(73, 211, 153,.5)"
+          fillcor="rgba(73, 211, 153,.25)"
+          bgcor="rgba(73, 211, 153,1)"
           redraw
         />
       </div>

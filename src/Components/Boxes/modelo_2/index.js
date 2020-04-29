@@ -7,7 +7,7 @@ const Modelo2 = (props) => (
   <div className="box">
     <div className="box__conteudoWrapper vertical">
       <div className="box__iconeWrapper">
-        <div className="box__icone off1">{props.icone}</div>
+        <div className={"box__icone " + props.fill}>{props.icone}</div>
       </div>
       <div className="box__conteudo">
         <div className="box__dados">

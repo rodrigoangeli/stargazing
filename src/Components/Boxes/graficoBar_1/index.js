@@ -9,19 +9,11 @@ const GraficoBar1 = (props) => (
       </div>
       <div className="box__conteudo">
         <GraficoBar
-          dados={[65, 59, 80, 81, 56, 55, 40]}
-          labels={[
-            "Segunda",
-            "Terça",
-            "Quarta",
-            "Quinta",
-            "Sexta",
-            "Sábado",
-            "Domingo",
-          ]}
-          cor="rgba(248, 213, 126,.5)"
-          fillcor="rgba(248, 213, 126,.25)"
-          bgcor="rgba(248, 213, 126,1)"
+          dados={props.dados}
+          labels={props.labels}
+          cor="rgba(252, 138, 74,.5))"
+          fillcor="rgba(252, 138, 74,.25)"
+          bgcor="rgba(252, 138, 74,1)"
           redraw
         />
       </div>

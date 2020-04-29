@@ -6,7 +6,7 @@ import Neutro from "../../Icons/neutro";
 const Modelo1 = (props) => (
   <div className="box">
     <div className="box__iconeWrapper">
-      <div className="box__icone off1">{props.icone}</div>
+      <div className={"box__icone " + props.fill}>{props.icone}</div>
     </div>
     <div className="box__conteudoWrapper">
       <div className="box__titulo">
@@ -18,17 +18,17 @@ const Modelo1 = (props) => (
           {props.porcentagem && (
             <span
               className={
-                props.porcentagem.includes("+")
+                props.porcentagem > 0
                   ? "ml-2 pos"
-                  : props.porcentagem.includes("-")
+                  : props.porcentagem < 0
                   ? "ml-2 neg"
                   : "ml-2 "
               }
             >
-              <b>{props.porcentagem}</b>
-              {props.porcentagem.includes("+") ? (
+              <b>{props.porcentagem + "%"}</b>
+              {props.porcentagem > 0 ? (
                 <Ascensao />
-              ) : props.porcentagem.includes("-") ? (
+              ) : props.porcentagem < 0 ? (
                 <Descensao />
               ) : (
                 <Neutro />

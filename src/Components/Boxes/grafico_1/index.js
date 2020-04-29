@@ -36,23 +36,20 @@ const Grafico1 = (props) => (
             </>
           )}
           <p>
-            Houve um número positivo de seguidores ganhos no período selecionado
+            {props.num > 0
+              ? "Houve um número positivo de seguidores ganhos no período selecionado"
+              : props.num < 0
+              ? " Houve um número negativo de seguidores ganhos no período selecionado"
+              : " Não houve uma mudança no número de seguidores no período selecionado"}
           </p>
         </div>
         <GraficoLine
-          dados={[65, 59, 80, 81, 56, 55, 10]}
-          labels={[
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-          ]}
-          cor="rgba(248, 213, 126,.5)"
-          fillcor="rgba(248, 213, 126,.25)"
-          bgcor="rgba(248, 213, 126,1)"
+          gapNumero={props.gapNumero}
+          dados={props.dados}
+          labels={props.labels}
+          cor="rgba(93, 142, 255,.5)"
+          fillcor="rgba(93, 142, 255,.25)"
+          bgcor="rgba(93, 142, 255,1)"
           redraw
         />
       </div>
