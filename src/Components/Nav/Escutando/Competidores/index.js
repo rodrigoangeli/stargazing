@@ -10,7 +10,6 @@ import Posts1 from "../../../Boxes/posts_1";
 import Habitos1 from "../../../Boxes/habitos";
 import Publicacoes from "../../../Icons/publicacoes";
 import backgroundInfo from "../../../../Assets/img/background_info.png";
-import jsonTeste from "../../../../Utils/json/verbojuridico2.json";
 import { PostData } from "../../../../Utils/PostData";
 
 export default class Competidores extends Component {
@@ -30,15 +29,14 @@ export default class Competidores extends Component {
     return (((n - a) / a) * 100).toFixed(2);
   };
 
-  /* componentWillMount() {
-    PostData("signup", this.state).then((result) => {
+  componentDidMount() {
+    PostData("getConcorrente", this.state).then((result) => {
       let responseJson = result;
-      if (responseJson.userData) {
-        sessionStorage.setItem("userData", JSON.stringify(responseJson));
-        this.setState({ redirectToReferrer: true });
-      } else alert(result.error);
+      console.log(responseJson);
+      alert("arrumar para captar os dados corretos");
+      this.setState({ con: responseJson });
     });
-  } */
+  }
 
   render() {
     return (

@@ -43,7 +43,7 @@ var dadosGerais = {};
 var instaUser = process.argv[2];
 var resultado = {};
 var proxyurl = "https://cors-anywhere.herokuapp.com/";
-var BaseURL = "https://angelidev.com/instaphp/index.php";
+var BaseURL = "https://angelidev.com/instaphp/addPosts.php";
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var options, user, i, error_1;
     return __generator(this, function (_a) {

@@ -7,7 +7,7 @@ let dadosGerais: any = {};
 let instaUser = process.argv[2];
 let resultado: any = {};
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-let BaseURL = "https://angelidev.com/instaphp/index.php";
+let BaseURL = "https://angelidev.com/instaphp/addPosts.php";
 
 (async () => {
   let options = {

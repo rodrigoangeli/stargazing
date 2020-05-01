@@ -13,7 +13,6 @@ export function PostData(type, userData) {
     })
       .then((response) =>
         response.text().then((res) => {
-          console.log(res);
           var jsonBonita = JSON.parse(res);
           resolve(jsonBonita);
         })
