@@ -11,7 +11,7 @@ const Modelo2 = (props) => (
       </div>
       <div className="box__conteudo">
         <div className="box__dados">
-          <h2>{props.num}</h2>
+          <div className="box__num">{props.num}</div>
 
           <div className="box__titulo">
             <h6>{props.desc}</h6>

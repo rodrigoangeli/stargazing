@@ -33,8 +33,18 @@
       .box__dados {
         display: flex;
         flex-wrap: wrap;
-        h2 {
+        color: $color-text;
+
+        .box__num {
           font-weight: 800;
+          margin-top: 2px;
+          font-size: 2.375rem;
+          line-height: 1.5;
+          color: $color-primary;
+
+          &.lg {
+            font-size: 5rem;
+          }
         }
         svg {
           margin-left: 5px;
@@ -90,7 +100,34 @@
 
     &.grafico {
       .box__titulo {
-        padding: 15px 30px 8px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 20px 8px 20px;
+
+        span {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 5px;
+
+          &.off1 {
+            border: 2px solid $color-off1;
+          }
+          &.off2 {
+            border: 2px solid $color-off2;
+          }
+          &.off3 {
+            border: 2px solid $color-off3;
+          }
+        }
+
+        p {
+          font-size: 14px;
+          margin: 0;
+          color: $color-text;
+        }
       }
       .box__conteudo {
         padding: 15px 30px 15px 30px;
@@ -131,7 +168,9 @@
   background-size: cover;
   background-position: center;
 
-  h4 {
+  .informacao__titulo {
+    font-size: 1.5625rem;
+    line-height: 1.2;
     color: $color-primary;
     font-weight: 600;
   }

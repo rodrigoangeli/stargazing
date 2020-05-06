@@ -3,23 +3,33 @@ const path = require("path");
 const isDev = require("electron-is-dev");
 const fs = require("fs");
 const exec = require("child_process").exec;
+const windowStateKeeper = require("electron-window-state");
+let win;
 
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../src/Utils/constants");
 
 let mainWindow;
 let veja = [];
+
 function createWindow() {
+  let mainWindowState = windowStateKeeper({
+    defaultWidth: 1280,
+    defaultHeight: 720,
+  });
+
+  // Create the window using the state information
   mainWindow = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,
     },
-    titleBarStyle: "hidden",
-    minWidth: 800,
-    minHeight: 600,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     autoHideMenuBar: true,
     show: false,
     frame: false,
-    backgroundColor: "#0a1032",
+    backgroundColor: "#000517",
     //transparent: true,
     //fullscreen: true,
     icon: path.join(__dirname, "assets/logo.png"),
@@ -34,6 +44,7 @@ function createWindow() {
   if (isDev) {
     mainWindow.webContents.openDevTools();
   }
+
   mainWindow.on("closed", () => (mainWindow = null));
 
   mainWindow.on("maximize", () => {
@@ -54,7 +65,9 @@ function createWindow() {
   /* globalShortcut.register('Esc', () => {
       app.quit();
   });*/
+  mainWindowState.manage(mainWindow);
 }
+
 ipcMain.on(CATCH_ON_MAIN, (event, arg) => {
   var consultaPerfil = exec("node src/Utils/vamove.js " + arg, {
     maxBuffer: 1024 * 50000000,

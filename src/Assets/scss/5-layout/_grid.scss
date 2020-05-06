@@ -21,12 +21,89 @@
     border-radius: 25px 0 0 0;
 
     .Componentes {
-      padding: 35px 45px;
       overflow-y: scroll;
       overflow-x: hidden;
       height: calc(100vh - 80px);
 
-      .componenteWrapper {
+      header {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+
+        .concorrente__lista {
+          list-style: none;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          border: 1px solid $color-input;
+          border-radius: $border-radius;
+          overflow: hidden;
+
+          li {
+            color: #97a3ac;
+            transition: $transition;
+            padding: 10px 30px;
+            border-right: 1px solid #e4e7eb;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            cursor: pointer;
+
+            &.active {
+              background-color: $color-off3;
+              color: $color-white;
+              font-weight: 500;
+            }
+
+            &:hover:not(.active) {
+              color: #798792;
+            }
+
+            svg {
+              height: 23px;
+              fill: $color-text;
+              cursor: pointer;
+              transition: $transition;
+
+              &:hover {
+                fill: $color-primary;
+              }
+            }
+          }
+        }
+        .concorrente__adicionar {
+          background-color: $color-white;
+          border: 1px solid $color-input;
+          padding: 10px 20px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          border-radius: $border-radius;
+          margin-left: 15px;
+          cursor: pointer;
+
+          svg {
+            margin-left: 8px;
+          }
+        }
+      }
+
+      .header__botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+
+        button {
+          margin-left: 15px;
+        }
+      }
+
+      main {
+        padding: 35px 45px;
         @media (min-width: 1650px) {
           max-width: 1410px;
           margin: 0 auto;
@@ -45,6 +122,7 @@ section {
   margin-top: 2rem;
 }
 
+h1.titulo,
 h2.titulo,
 h3.titulo,
 h4.titulo {

@@ -8,11 +8,14 @@ const Grafico1 = (props) => (
   <div className="box">
     <div className="box__conteudoWrapper grafico">
       <div className="box__titulo">
-        <h6>{props.desc}</h6>
+        <h6>
+          <span className="off3"></span> {props.desc}
+        </h6>
+        <p>{props.ultimos}</p>
       </div>
       <div className="box__conteudo">
         <div className="box__dados">
-          <h1>{props.num}</h1>
+          <div className="box__num lg">{props.num}</div>
           {props.porcentagem && (
             <>
               <span

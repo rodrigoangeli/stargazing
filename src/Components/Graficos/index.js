@@ -15,6 +15,14 @@ let options = {
       bottom: 0,
     },
   },
+  tooltips: {
+    mode: "index",
+    intersect: false,
+  },
+  hover: {
+    mode: "nearest",
+    intersect: false,
+  },
   scales: {
     xAxes: [
       {

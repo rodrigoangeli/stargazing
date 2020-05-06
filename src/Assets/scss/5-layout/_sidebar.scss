@@ -7,7 +7,7 @@
   background-color: $color-primary;
   z-index: 3;
   padding-bottom: 15px;
-  transition: flex $transition;
+  transition: all $transition;
 
   &:hover {
     .Sidebar__menu {
@@ -42,6 +42,7 @@
     margin: 0 auto;
     height: 35px;
     width: 135px;
+    margin-top: 40px;
     > svg {
       height: 100%;
       width: 100%;
@@ -56,6 +57,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-end;
+    margin-top: 60px;
 
     &.sidebar__mainNav {
       flex: 1 1;
@@ -199,23 +201,6 @@
       }
     }
   }
-  .sidebar__perfil {
-    margin: 55px 0 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 30px;
-      border-radius: 50%;
-    }
-
-    span {
-      color: $color-white;
-      margin-left: 10px;
-    }
-  }
 
   &.active {
     flex: 0 0 70px;
@@ -227,11 +212,6 @@
     .logo {
       width: 41px;
       #tipografia {
-        display: none;
-      }
-    }
-    .sidebar__perfil {
-      span {
         display: none;
       }
     }

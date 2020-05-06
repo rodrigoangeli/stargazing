@@ -1,22 +1,47 @@
 .login {
-  height: 100vh;
+  min-height: calc(100vh - 30px);
 
-  .login__box {
-    height: 100%;
-    background-color: $color-white;
-    width: 42vw;
-    min-width: 574px;
-    padding: 0 120px;
+  .painel {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    min-height: calc(100vh - 30px);
+
+    .login__info {
+      flex: 0 0 50%;
+      max-width: 50%;
+      h1 {
+        font-size: 73px;
+        color: white;
+        font-weight: 700;
+      }
+
+      svg {
+        height: 40px;
+      }
+    }
 
     .login__form {
-      width: 100%;
+      h2 {
+        font-size: 30px;
+        margin-bottom: 32px;
+        margin-top: 10px;
+        font-weight: 700;
+        text-align: center;
+      }
+      background-color: white;
+      padding: 32px;
+      border-radius: $border-radius;
+      flex: 0 0 41.666%;
+      max-width: 41.666%;
     }
-  }
-
-  svg {
-    margin-bottom: 2rem;
   }
 }

@@ -4,6 +4,9 @@ import Sidebar from "../../Components/Sidebar";
 import Searchbar from "../../Components/Searchbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "../../Components/Nav";
+import moment from "moment/min/moment-with-locales";
+import { Provider } from "react-redux";
+import store from "../../Store";
 
 const { ipcRenderer } = window.require("electron");
 const { CATCH_ON_MAIN, SEND_TO_RENDERER } = require("../../Utils/constants");
@@ -43,17 +46,19 @@ class Main extends Component {
     }
     return (
       <div className="Main">
-        <Router>
-          <Sidebar />
+        <Provider store={store}>
+          <Router>
+            <Sidebar />
 
-          <div className="Content">
-            <Searchbar buscarIg={this.buscarIg}></Searchbar>
+            <div className="Content">
+              <Searchbar buscarIg={this.buscarIg}></Searchbar>
 
-            <div className="Componentes">
-              <Nav />
+              <div className="Componentes">
+                <Nav />
+              </div>
             </div>
-          </div>
-        </Router>
+          </Router>
+        </Provider>
       </div>
     );
   }

@@ -29,20 +29,25 @@ export default class Searchbar extends Component {
     return (
       <div className="Searchbar active">
         <form className="searchbar__form" onSubmit={this.hanldeSubmit}>
-          <div className="input-wrapper">
-            <Lupa />
-            <input
-              type="text"
-              placeholder='Tente procurando por "Média de comentários recebidos"'
-              onChange={this.onInputChange}
-              name="name"
-              value={this.state.nome}
-            ></input>
-          </div>
+          <Lupa />
+          <input
+            type="text"
+            placeholder='Tente procurando por dados como "Média de comentários recebidos"'
+            onChange={this.onInputChange}
+            name="name"
+            value={this.state.nome}
+          ></input>
         </form>
-        <button type="button" className="sm btn-transparente primary">
-          Exportar
-        </button>
+        <div className="searchbar__perfil">
+          <img
+            src="https://instagram.fpoa7-2.fna.fbcdn.net/v/t51.2885-19/s150x150/81910035_612878822909932_7390832095788007424_n.jpg?_nc_ht=instagram.fpoa7-2.fna.fbcdn.net&_nc_ohc=080mzQrrrU8AX-NVXzA&oh=aee3e27a382c1e2aa35551b5bff14bd3&oe=5ECAF8B2"
+            alt=""
+          />
+          <div className="searchbar__perfil--dados">
+            <div>Rodrigo Angeli</div>
+            <div>@rodrigo_angeli</div>
+          </div>
+        </div>
       </div>
     );
   }

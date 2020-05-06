@@ -14,7 +14,7 @@ const Modelo1 = (props) => (
       </div>
       <div className="box__conteudo">
         <div className="box__dados">
-          <h2>{props.num}</h2>
+          <div className="box__num">{props.num}</div>
           {props.porcentagem && (
             <span
               className={

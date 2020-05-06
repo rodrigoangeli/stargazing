@@ -5,7 +5,11 @@ const Grafico2 = (props) => (
   <div className="box">
     <div className="box__conteudoWrapper grafico">
       <div className="box__titulo">
-        <h6>{props.desc}</h6>
+        <h6>
+          {" "}
+          <span className="off1"></span> {props.desc}
+        </h6>
+        <p>{props.ultimos}</p>
       </div>
       <div className="box__conteudo">
         <GraficoLine

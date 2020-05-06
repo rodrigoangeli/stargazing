@@ -15,6 +15,14 @@ let options = {
       bottom: 0,
     },
   },
+  tooltips: {
+    mode: "index",
+    intersect: false,
+  },
+  hover: {
+    mode: "nearest",
+    intersect: false,
+  },
   scales: {
     xAxes: [
       {
@@ -49,12 +57,37 @@ let options = {
     ],
   },
 };
+
 export default class GraficoBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       nometag: options,
     };
+  }
+
+  componentDidMount() {
+    this.setState((prevState) => ({
+      nometag: {
+        ...prevState.nometag,
+        scales: {
+          ...prevState.nometag.scales,
+          yAxes: [
+            {
+              ...prevState.nometag.scales.yAxes,
+              ticks: {
+                ...prevState.nometag.scales.yAxes.ticks,
+                fontFamily:
+                  "'Work Sans', -apple-system, BlinkMacSystemFont,'Segoe UI','sans-serif'",
+                padding: 15,
+                fontColor: "rgb(147, 151, 152)",
+                stepSize: this.props.gapNumero,
+              },
+            },
+          ],
+        },
+      },
+    }));
   }
 
   render() {

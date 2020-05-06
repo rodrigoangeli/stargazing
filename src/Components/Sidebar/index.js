@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Logo from "../Icons/logo";
+import Logo2 from "../Icons/logo2";
 import { Link } from "react-router-dom";
 import { menuItems } from "../../Utils/nav";
 import Sair from "../Icons/sair";
@@ -43,15 +44,9 @@ class Sidebar extends Component {
         <div className="Sidebar__menu" onClick={this.toggleMenu}></div>
 
         <Link className="logo" to="/Main/Dashboard">
-          <Logo fill1="#0a1032" fill2="#f8d57e" />
+          <Logo2 fill="#f8d57e" />
         </Link>
-        <div className="sidebar__perfil">
-          <img
-            src="https://instagram.fpoa7-2.fna.fbcdn.net/v/t51.2885-19/s150x150/81910035_612878822909932_7390832095788007424_n.jpg?_nc_ht=instagram.fpoa7-2.fna.fbcdn.net&_nc_ohc=080mzQrrrU8AX-NVXzA&oh=aee3e27a382c1e2aa35551b5bff14bd3&oe=5ECAF8B2"
-            alt=""
-          />
-          <span>@rodrigo_angeli</span>
-        </div>
+
         <div className="sidebar__wrapper sidebar__mainNav">
           <ul className="nav">
             {menuItems.map((menuItem, i) => {

@@ -10,15 +10,19 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/node-fetch": "^2.5.7",
     "chart.js": "^2.9.3",
+    "electron-window-state": "^5.0.3",
     "instatouch": "^2.1.9",
+    "moment": "2.22.2",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -56,6 +60,7 @@
     "electron": "^8.2.1",
     "electron-builder": "^22.4.1",
     "electron-is-dev": "^1.2.0",
+    "redux-devtools": "^3.5.0",
     "typescript": "^3.8.3",
     "wait-on": "^4.0.2"
   }

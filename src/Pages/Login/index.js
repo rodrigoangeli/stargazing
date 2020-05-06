@@ -39,28 +39,40 @@ class Login extends Component {
     if (sessionStorage.getItem("userData")) {
       return <Redirect to={"/Main/Dashboard"} />;
     }
+    const { username, password } = this.state;
+    const isEnabled = username.length > 0 && password.length > 0;
+
     return (
       <div className="login w-100">
-        <div className="login__box">
-          <Logo fill1="#0a1032" fill2="#f8d57e" />
-          <h2 className="titulo">Login</h2>
+        <div className="painel">
+          <div className="login__info">
+            <Logo fill1="#0a1032" fill2="#f8d57e" />
+            <h1>Bem-vindo à sua plataforma</h1>
+          </div>
           <div className="login__form">
-            <label>Usuário</label>
-            <input
-              placeholder="Digite seu usuário"
-              type="text"
-              name="username"
-              className="mb-3 form-control-lg form-control w-100"
-              onChange={this.onChange}
-            />
-            <label>Senha</label>
-            <input
-              placeholder="Digite sua senha"
-              type="password"
-              name="password"
-              className="mb-3 form-control-lg form-control w-100"
-              onChange={this.onChange}
-            />
+            <h2>Faça seu login</h2>
+            <div className="input-float">
+              <label>Usuário</label>
+              <input
+                placeholder="Digite seu usuário"
+                type="text"
+                name="username"
+                className={!isEnabled ? "active" : ""}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className="input-float">
+              <label>Senha</label>
+              <input
+                placeholder="Digite sua senha"
+                type="password"
+                name="password"
+                className="w-100"
+                onChange={this.onChange}
+              />
+            </div>
+
             <input
               type="submit"
               className="mt-3 w-100 btn btn-primary btn-lg btn-block"
