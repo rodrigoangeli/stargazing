@@ -13,7 +13,7 @@
     "electron-window-state": "^5.0.3",
     "instatouch": "^2.1.9",
     "moment": "2.22.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
